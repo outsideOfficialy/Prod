@@ -5,5 +5,96 @@
 }
 
 :root {
+  /*! COLORS */
+  --black: #1e1e1e;
+  --black-half: #1e1e1e55;
+  --main-primary-color: #ec642b;
+  --primary-color: #ed772f;
+  --sub-primary-color: #ef9335;
+  --grey: #afac95;
+  --white-half: #e3e7d9;
+  --white: #fff;
 
+  /*! FONTS */
+  --page-font: "Montserrat";
+  --titles-font: "Dela Gothic One";
+}
+
+.container {
+  --container-top-padding: 0;
+  --container-side-padding: 15px;
+  --container-width: calc(var(--container-side-padding) + 1390px);
+
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: var(--container-top-padding) var(--container-side-padding);
+}
+
+.section-title {
+  --section-title-font-size: 54px;
+  
+  font-size: var(--section-title-font-size);
+}
+
+.underlined-title {
+  /* потом накину сюда стилей и переменных */
+}
+
+header {
+  --nav-btns-font-size: 24px;
+  --nav-btns-container-size: 443px;
+  --header-bg-color: var(--black-half);
+}
+
+/* класс кнопки для обнуления дефолтных стилей кнопки */
+.btn {
+  /* по дефолту кнопка будет выглядеть как кнопка btn-main-primary */
+  --width: 350px;
+  --padding: 21.5px 20px;
+  --font-size: 24px;
+  --hover-color: var(--sub-primary-color);
+  --focus-color: var(--primary-color);
+  --transition-time: 0.3s;
+  --bg-color: var(--main-primary-color);
+  --border: none;
+  --box-shadow: none;
+
+  box-shadow: var(--box-shadow);
+  transition: var(--transition-time);
+  max-width: var(--width);
+  width: 100%;
+  padding: var(--padding);
+  font-size: var(--font-size);
+  background-color: var(--bg-color);
+  border: var(--border);
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--hover-color);
+}
+
+.btn:focus {
+  background-color: var(--focus-color);
+}
+
+/* допустим я хочу другую кнопку */
+.btn.btn-scroll-up {
+  /*? background: ; тут типа размещаю картинку стрелочки вверх */
+  --padding: 22px;
+  --border: 1px solid var(--white-half);
+  --width: 60px;
+  --hover-color: var(--black);
+  --bg-color: var(--black-half);
+}
+
+@media screen and (max-width: 997px) {
+  /* допустим вот адаптация под мобилку */
+  .btn.btn-main-primary {
+    --width: none;
+    --padding: 15px;
+    --fong-size: 20px;
+  }
 }
