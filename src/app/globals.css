@@ -22,6 +22,8 @@
 
 body {
   background-color: var(--black);
+  font-family: var(--page-font);
+  color: var(--white-half);
 }
 
 .container {
