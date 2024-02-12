@@ -20,6 +20,10 @@
   --titles-font: "Dela Gothic One";
 }
 
+body {
+  background-color: var(--black);
+}
+
 .container {
   --container-top-padding: 0;
   --container-side-padding: 15px;
