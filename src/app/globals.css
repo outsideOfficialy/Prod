@@ -26,6 +26,10 @@ body {
   color: var(--white-half);
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   --container-top-padding: 0;
   --container-side-padding: 15px;
@@ -45,12 +49,6 @@ body {
 
 .underlined-title {
   /* потом накину сюда стилей и переменных */
-}
-
-header {
-  --nav-btns-font-size: 24px;
-  --nav-btns-container-size: 443px;
-  --header-bg-color: var(--black-half);
 }
 
 /* класс кнопки для обнуления дефолтных стилей кнопки */
