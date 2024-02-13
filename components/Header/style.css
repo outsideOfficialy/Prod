@@ -19,6 +19,7 @@ header {
 
 header .container {
   align-items: center;
+  padding: 0;
 }
 
 .header__logo {
@@ -33,18 +34,41 @@ header .container {
 }
 
 .header__nav li {
-  transition: .3s;
+  transition: 0.3s;
+  position: relative;
   cursor: pointer;
+}
+
+.header__nav li::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 5px);
+  width: 0;
+  left: 50%;
+  display: block;
+  transform: translate(-50%, 0);
+  background-color: var(--primary-color);
+  height: 1px;
+  transition: 0.3s;
 }
 
 .header__nav li:hover {
   color: var(--primary-color);
 }
 
+.header__nav li:hover::after {
+  width: 100%;
+}
+
 .header__btns-container {
   width: 100%;
   padding: 0 var(--nav-btn-container-side-padding);
-  max-width: calc(var(--nav-btn-container-side-padding) + var(--nav-btns-container-size));
+  max-width: calc(var(--nav-btn-container-side-padding) * 2 + var(--nav-btns-container-size));
+}
+
+.header__icons-container .icons-container {
+  width: 100%;
+  max-width: calc(var(--nav-btns-container-size) - 52.55px * 2);
 }
 
 .header__icons-container .icons-container__logo {
@@ -53,4 +77,3 @@ header .container {
   background-color: var(--grey);
   cursor: pointer;
 }
-

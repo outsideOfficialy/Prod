@@ -35,7 +35,7 @@ ul {
 .container {
   --container-top-padding: 0;
   --container-side-padding: 15px;
-  --container-width: calc(var(--container-side-padding) + 1390px);
+  --container-width: calc(var(--container-side-padding) * 2 + 1390px);
 
   width: 100%;
   margin: 0 auto;

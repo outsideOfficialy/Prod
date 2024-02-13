@@ -14,11 +14,13 @@ const Header: React.FC = () => {
 
       <div className="header__logo">outside</div>
 
-      <div className="header__btns-container header__icons-container d-flex justify-between">
-        <div className="icons-container__logo"></div>
-        <div className="icons-container__logo"></div>
-        <div className="icons-container__logo"></div>
-        <div className="icons-container__logo"></div>
+      <div className="header__btns-container header__icons-container d-flex justify-center">
+        <div className="icons-container d-flex justify-between">
+          <div className="icons-container__logo"></div>
+          <div className="icons-container__logo"></div>
+          <div className="icons-container__logo"></div>
+          <div className="icons-container__logo"></div>
+        </div>
       </div>
     </div>
   </header>;
