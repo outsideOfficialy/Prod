@@ -1,6 +1,56 @@
 header {
   --nav-btns-font-size: 24px;
-  --nav-btns-container-size: 443px;
-  --header-bg-color: var(--black-half);
+  --nav-logo-font-size: 54px;
 
+  --nav-btns-container-size: 443px;
+  --nav-btn-container-side-padding: 15px;
+
+  --header-bg-color: var(--black-half);
+  --header-top-paddings: 15px;
+  --header-border-bottom: 1px solid var(--white-half);
+
+  --header-icons-size: 32px;
+
+  padding: var(--header-top-paddings) 0;
+  font-size: var(--nav-btns-font-size);
+  background-color: var(--header-bg-color);
+  border-bottom: var(--header-border-bottom);
 }
+
+header .container {
+  align-items: center;
+}
+
+.header__logo {
+  font-size: var(--nav-logo-font-size);
+  font-family: var(--titles-font);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header__nav {
+  text-wrap: nowrap;
+}
+
+.header__nav li {
+  transition: .3s;
+  cursor: pointer;
+}
+
+.header__nav li:hover {
+  color: var(--primary-color);
+}
+
+.header__btns-container {
+  width: 100%;
+  padding: 0 var(--nav-btn-container-side-padding);
+  max-width: calc(var(--nav-btn-container-side-padding) + var(--nav-btns-container-size));
+}
+
+.header__icons-container .icons-container__logo {
+  width: var(--header-icons-size);
+  height: var(--header-icons-size);
+  background-color: var(--grey);
+  cursor: pointer;
+}
+

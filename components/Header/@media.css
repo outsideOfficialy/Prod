@@ -1,0 +1,9 @@
+/* пример адаптации + предложение того как организовать медиазапросы */
+@media screen and (max-width: 1200px) {
+  header {
+    --nav-btns-font-size: 18px;
+    --nav-logo-font-size: 48px;
+
+    --header-icons-size: 26px;
+  }
+}
