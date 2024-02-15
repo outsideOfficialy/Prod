@@ -1,13 +1,20 @@
-@import url(./shortClasses.css);
+$color_1: var(--white-half);
+$font-family_1: var(--page-font);
+$background-color_1: var(--black);
+$background-color_2: var(--bg-color);
+$background-color_3: var(--hover-color);
+$background-color_4: var(--focus-color);
 
+@import "./shortClasses.css";
+/* класс кнопки для обнуления дефолтных стилей кнопки */
+/* допустим я хочу другую кнопку */
+/* допустим вот адаптация под мобилку */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
-  /*! COLORS */
   --black: #1e1e1e;
   --black-half: #1e1e1e55;
   --main-primary-color: #ec642b;
@@ -16,46 +23,31 @@
   --grey: #afac95;
   --white-half: #e3e7d9;
   --white: #fff;
-
-  /*! FONTS */
   --page-font: "Montserrat";
   --titles-font: "Dela Gothic One";
 }
-
 body {
-  background-color: var(--black);
-  font-family: var(--page-font);
-  color: var(--white-half);
+  background-color: $background-color_1;
+  font-family: $font-family_1;
+  color: $color_1;
 }
-
 ul {
   list-style: none;
 }
-
 .container {
   --container-top-padding: 0;
   --container-side-padding: 15px;
   --container-width: calc(var(--container-side-padding) * 2 + 1390px);
-
   width: 100%;
   margin: 0 auto;
   max-width: var(--container-width);
   padding: var(--container-top-padding) var(--container-side-padding);
 }
-
 .section-title {
   --section-title-font-size: 54px;
-
   font-size: var(--section-title-font-size);
 }
-
-.underlined-title {
-  /* потом накину сюда стилей и переменных */
-}
-
-/* класс кнопки для обнуления дефолтных стилей кнопки */
 .btn {
-  /* по дефолту кнопка будет выглядеть как кнопка btn-main-primary */
   --width: 350px;
   --padding: 21.5px 20px;
   --font-size: 24px;
@@ -65,39 +57,31 @@ ul {
   --bg-color: var(--main-primary-color);
   --border: none;
   --box-shadow: none;
-
   box-shadow: var(--box-shadow);
   transition: var(--transition-time);
   max-width: var(--width);
   width: 100%;
   padding: var(--padding);
   font-size: var(--font-size);
-  background-color: var(--bg-color);
+  background-color: $background-color_2;
   border: var(--border);
   outline: none;
   cursor: pointer;
+  &:hover {
+    background-color: $background-color_3;
+  }
+  &:focus {
+    background-color: $background-color_4;
+  }
 }
-
-.btn:hover {
-  background-color: var(--hover-color);
-}
-
-.btn:focus {
-  background-color: var(--focus-color);
-}
-
-/* допустим я хочу другую кнопку */
 .btn.btn-scroll-up {
-  /*? background: ; тут типа размещаю картинку стрелочки вверх */
   --padding: 22px;
   --border: 1px solid var(--white-half);
   --width: 60px;
   --hover-color: var(--black);
   --bg-color: var(--black-half);
 }
-
 @media screen and (max-width: 997px) {
-  /* допустим вот адаптация под мобилку */
   .btn.btn-main-primary {
     --width: none;
     --padding: 15px;
