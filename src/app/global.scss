@@ -12,6 +12,7 @@ $background-color_4: var(--focus-color);
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 :root {
@@ -57,7 +58,10 @@ ul {
   --bg-color: var(--main-primary-color);
   --border: none;
   --box-shadow: none;
+  -webkit-box-shadow: var(--box-shadow);
   box-shadow: var(--box-shadow);
+  -webkit-transition: var(--transition-time);
+  -o-transition: var(--transition-time);
   transition: var(--transition-time);
   max-width: var(--width);
   width: 100%;
