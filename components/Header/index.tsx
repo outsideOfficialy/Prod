@@ -1,8 +1,8 @@
-import "./style.css";
-import "./@media.css";
+import "./style.scss";
+import "./@media.scss";
 
 const Header: React.FC = () => {
-  return <header>
+  return <header className="header">
     <div className="container d-flex justify-between">
 
       <ul className="header__btns-container header__nav d-flex justify-between">
