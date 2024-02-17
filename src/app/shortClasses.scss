@@ -6,6 +6,11 @@
   display: flex;
 }
 
+@mixin width($width, $max-width: none) {
+  width: $width;
+  max-width: $max-width;
+}
+
 
 // теперь это все можно заменить на вызов функции и передачи туда параметров:
 // flex(space-between); или flex(space-between, center);

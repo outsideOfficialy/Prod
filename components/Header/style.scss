@@ -1,3 +1,5 @@
+@import "@/src/app/shortClasses.scss";
+
 .header {
   --nav-btns-font-size: 24px;
   --nav-logo-font-size: 54px;
@@ -59,9 +61,9 @@
   }
 
   &__btns-container {
-    width: 100%;
+    --max-width: calc(var(--nav-btn-container-side-padding) * 2 + var(--nav-btns-container-size));
+    @include width(100%, var(--max-width));
     padding: 0 var(--nav-btn-container-side-padding);
-    max-width: calc(var(--nav-btn-container-side-padding) * 2 + var(--nav-btns-container-size));
 
     .icons-container {
       width: 100%;
