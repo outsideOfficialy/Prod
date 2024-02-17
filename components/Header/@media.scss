@@ -1,9 +1,54 @@
 /* пример адаптации + предложение того как организовать медиазапросы */
-@media screen and (max-width: 1200px) {
-  header {
-    --nav-btns-font-size: 18px;
+@media (max-width: 991px) {
+  .header {
+    --nav-btns-font-size: 16px;
     --nav-logo-font-size: 48px;
+    --header-top-paddings: 18px;
 
     --header-icons-size: 26px;
+
+    .container {
+      justify-content: center;
+      padding: 0 15px;
+    }
+
+    &__btns-container {
+      flex-direction: column;
+      --nav-btn-container-side-padding: 0;
+    }
+
+    &__nav {
+      --nav-btns-container-size: 180px;
+      max-width: none;
+      height: 100%;
+      max-height: var(--nav-btns-container-size);
+      justify-content: space-between;
+      margin-bottom: 35px;
+
+      li {
+        width: min-content;
+      }
+    }
+
+    &__icons {
+      --max-width: none;
+      --header-icons-size: 20px;
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .icons-container {
+        max-width: 140px;
+      }
+    }
+
+    &__logo {
+      margin: 0;
+    }
+
+    
   }
 }
