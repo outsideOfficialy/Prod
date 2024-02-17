@@ -18,20 +18,33 @@
   background-color: var(--header-bg-color);
   border-bottom: var(--header-border-bottom);
 
+  // контейнер внутри header
   .container {
-    align-items: center;
-    padding: 0;
+    @include flex(space-between, center);
   }
 
+  // само лого
   &__logo {
     font-size: var(--nav-logo-font-size);
     font-family: var(--titles-font);
     text-transform: uppercase;
+    margin-right: 15px;
     cursor: pointer;
   }
 
+  // контейнер с навиг. меню и лого, общие стили
+  &__btns-container {
+    --max-width: calc(var(--nav-btn-container-side-padding) + var(--nav-btns-container-size));
+    @include width(100%, var(--max-width));
+    padding: 0 var(--nav-btn-container-side-padding);
+  }
+
+  // контейнер с навиг. меню
   &__nav {
     text-wrap: nowrap;
+    @include flex(space-between);
+    padding-left: 0;
+
     li {
       transition: 0.3s;
       position: relative;
@@ -60,16 +73,17 @@
     }
   }
 
-  &__btns-container {
-    --max-width: calc(var(--nav-btn-container-side-padding) * 2 + var(--nav-btns-container-size));
-    @include width(100%, var(--max-width));
-    padding: 0 var(--nav-btn-container-side-padding);
+  // контейнер для лого
+  &__icons {
+    --max-width: calc(var(--nav-btns-container-size));
+    --nav-btn-container-side-padding: 52.55px;
+    @include flex(center);
 
     .icons-container {
+      @include flex(space-between);
       width: 100%;
-      max-width: calc(var(--nav-btns-container-size) - 52.55px * 2);
 
-      .icons-container__logo {
+      &__logo {
         width: var(--header-icons-size);
         height: var(--header-icons-size);
         background-color: var(--grey);

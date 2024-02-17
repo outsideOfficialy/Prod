@@ -3,9 +3,9 @@ import "./@media.scss";
 
 const Header: React.FC = () => {
   return <header className="header">
-    <div className="container d-flex justify-between">
+    <div className="container">
 
-      <ul className="header__btns-container header__nav d-flex justify-between">
+      <ul className="header__btns-container header__nav">
         <li>Новини</li>
         <li>Музика</li>
         <li>Мерч</li>
@@ -14,8 +14,8 @@ const Header: React.FC = () => {
 
       <div className="header__logo">outside</div>
 
-      <div className="header__btns-container header__icons-container d-flex justify-center">
-        <div className="icons-container d-flex justify-between">
+      <div className="header__btns-container header__icons">
+        <div className="icons-container">
           <div className="icons-container__logo"></div>
           <div className="icons-container__logo"></div>
           <div className="icons-container__logo"></div>
