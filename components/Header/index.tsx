@@ -48,15 +48,24 @@ const Header: React.FC = () => {
     {/* на мобилке сделать выпадающее меню */}
     {isMobile && <div className={`header__side-menu ${sideMenuIsOpened ? "opened" : ""}`}>
 
-      <div className="header__side-menu-title">
-        <p>МЕНЮ</p>
-        <button onClick={toggleSideMenuOpen} className="header__side-menu-close btn-close material-symbols-outlined">close</button>        
+      <div className="header__side-menu-container">
+        <div className="header__side-menu-title">
+          <p>МЕНЮ</p>
+          <button onClick={toggleSideMenuOpen} className="header__side-menu-close btn-close material-symbols-outlined">close</button>
+        </div>
+
+        <HeaderNav />
+
+        <HeaderIcons isMobile />
       </div>
+      <div className="header__side-menu-copyrights">
+        <a className="copyrights__mail" href="mailto:outsideoffficial@gmail.com"><span className="material-symbols-outlined">mail</span>outsideoffficial@gmail.com</a>
 
-      <HeaderNav />
-
-      <HeaderIcons isMobile/>
-
+        <p>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
     </div>}
 
     <div className="container">
