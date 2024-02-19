@@ -1,5 +1,5 @@
 import PageTemplate from "../PageTemplate";
-import Header from "../Header";
+import { Header } from "../Header";
 import Footer from "../Footer";
 
 
@@ -16,7 +16,7 @@ const Page: React.FC<PageProps> = ({
   footer
 }) => {
   return <>
-  {/* if you write header in Page props, than it will dissappear */}
+    {/* if you write header in Page props, than it will dissappear */}
     {header === undefined && <Header />}
 
     <PageTemplate>

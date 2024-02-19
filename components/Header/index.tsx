@@ -3,7 +3,7 @@ import React from "react";
 import "./style.scss";
 import "./@media.scss";
 
-const HeaderNav: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
+const PagesNav: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
   return <ul className="header__btns-container header__nav">
     <li>Новини</li>
     <li>Музика</li>
@@ -12,7 +12,7 @@ const HeaderNav: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
   </ul>
 }
 
-const HeaderIcons: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
+const IconsList: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
   return <div className="header__btns-container header__icons">
     {isMobile && <p>Наші соц. мережи</p>}
     <div className="icons-container">
@@ -54,9 +54,9 @@ const Header: React.FC = () => {
           <button onClick={toggleSideMenuOpen} className="header__side-menu-close btn-close material-symbols-outlined">close</button>
         </div>
 
-        <HeaderNav />
+        <PagesNav />
 
-        <HeaderIcons isMobile />
+        <IconsList isMobile />
       </div>
       <div className="header__side-menu-copyrights">
         <a className="copyrights__mail" href="mailto:outsideoffficial@gmail.com"><span className="material-symbols-outlined">mail</span>outsideoffficial@gmail.com</a>
@@ -73,13 +73,13 @@ const Header: React.FC = () => {
       {isMobile && <button className="header__side-menu-btn material-symbols-outlined" onClick={toggleSideMenuOpen}>menu</button>}
 
       {/* если не мобилка, то отобразить иконки и навигацию на ряду с лого */}
-      {!isMobile && <HeaderNav />}
+      {!isMobile && <PagesNav />}
 
       <div className="header__logo">outside</div>
 
-      {!isMobile && <HeaderIcons />}
+      {!isMobile && <IconsList />}
     </div>
   </header>;
 }
 
-export default Header;
+export {Header, PagesNav, IconsList};
