@@ -50,6 +50,9 @@
     @include flex(space-between, center);
 
     .copyrights-container {
+      * {
+        font-weight: 300;
+      }
       
       .copyrights-date {
         font-size: 16px;

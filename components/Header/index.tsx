@@ -5,7 +5,7 @@ import "./@media.scss";
 
 const PagesNav: React.FC<{ isMobile?: boolean; className?: string; extraLinks?: string[] }> = ({ extraLinks, className, isMobile = false }) => {
   return <ul className={!className ? "header__btns-container header__nav" : className}>
-    {extraLinks ? extraLinks.map(el => <li>{el}</li>) : null}
+    {extraLinks ? extraLinks.map((el, idx) => <li key={idx}>{el}</li>) : null}
     <li>Новини</li>
     <li>Музика</li>
     <li>Мерч</li>
@@ -30,6 +30,8 @@ const Header: React.FC = () => {
   const [sideMenuIsOpened, setSideMenuIsOpened] = React.useState(false);
 
   React.useEffect(() => {
+    document.body.style.overflow = sideMenuIsOpened ? "hidden" : "visible";
+
     const checkScreenWidth = () => {
       setIsMobile(window.innerWidth <= 991);
     };
@@ -38,7 +40,7 @@ const Header: React.FC = () => {
     window.addEventListener('resize', checkScreenWidth);
 
     return () => window.removeEventListener('resize', checkScreenWidth);
-  });
+  }, [sideMenuIsOpened]);
 
   const toggleSideMenuOpen = () => {
     setSideMenuIsOpened(!sideMenuIsOpened);
