@@ -11,6 +11,32 @@
   max-width: $max-width;
 }
 
+@mixin hover-underline() {
+  transition: 0.3s;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 5px);
+    width: 0;
+    left: 50%;
+    display: block;
+    transform: translate(-50%, 0);
+    background-color: var(--primary-color);
+    height: 1px;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    color: var(--primary-color);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
 
 // теперь это все можно заменить на вызов функции и передачи туда параметров:
 // flex(space-between); или flex(space-between, center);

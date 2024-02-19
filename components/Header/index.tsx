@@ -3,8 +3,9 @@ import React from "react";
 import "./style.scss";
 import "./@media.scss";
 
-const PagesNav: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
-  return <ul className="header__btns-container header__nav">
+const PagesNav: React.FC<{ isMobile?: boolean; className?: string; extraLinks?: string[] }> = ({ extraLinks, className, isMobile = false }) => {
+  return <ul className={!className ? "header__btns-container header__nav" : className}>
+    {extraLinks ? extraLinks.map(el => <li>{el}</li>) : null}
     <li>Новини</li>
     <li>Музика</li>
     <li>Мерч</li>
@@ -12,8 +13,8 @@ const PagesNav: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
   </ul>
 }
 
-const IconsList: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
-  return <div className="header__btns-container header__icons">
+const IconsList: React.FC<{ isMobile?: boolean; className?: string }> = ({ className, isMobile = false }) => {
+  return <div className={!className ? "header__btns-container header__icons" : className}>
     {isMobile && <p>Наші соц. мережи</p>}
     <div className="icons-container">
       <div className="icons-container__logo"></div>
@@ -75,7 +76,7 @@ const Header: React.FC = () => {
       {/* если не мобилка, то отобразить иконки и навигацию на ряду с лого */}
       {!isMobile && <PagesNav />}
 
-      <div className="header__logo">outside</div>
+      <h1 className="header__logo">outside</h1>
 
       {!isMobile && <IconsList />}
     </div>

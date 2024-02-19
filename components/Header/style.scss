@@ -9,15 +9,15 @@
 
   --header-bg-color: var(--black-half);
   --header-top-paddings: 15px;
-  --header-border-bottom: 1px solid var(--white-half);
 
   --header-icons-size: 32px;
 
   padding: var(--header-top-paddings) 0;
-  position: relative;
+  position: fixed;
+  width: 100%;
   font-size: var(--nav-btns-font-size);
   background-color: var(--header-bg-color);
-  border-bottom: var(--header-border-bottom);
+  border-bottom: var(--separator-border);
 
   // контейнер внутри header
   .container {
@@ -47,30 +47,7 @@
     padding-left: 0;
 
     li {
-      transition: 0.3s;
-      position: relative;
-      cursor: pointer;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: calc(100% + 5px);
-        width: 0;
-        left: 50%;
-        display: block;
-        transform: translate(-50%, 0);
-        background-color: var(--primary-color);
-        height: 1px;
-        transition: 0.3s;
-      }
-
-      &:hover {
-        color: var(--primary-color);
-
-        &::after {
-          width: 100%;
-        }
-      }
+      @include hover-underline();
     }
   }
 
@@ -99,7 +76,7 @@
       font-size: 24px;
 
       &:hover {
-        color: var(--primary-color) !important;
+        color: var(--primary-color);
       }
     }
 
@@ -132,7 +109,7 @@
 
     &-title {
       @include flex(space-between);
-      border-bottom: 1px solid var(--white);
+      border-bottom: var(--separator-border);
       padding-bottom: 15px;
       margin-bottom: 15px;
       font-size: 20px;
