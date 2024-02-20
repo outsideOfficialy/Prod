@@ -1,4 +1,4 @@
-import React from "react";
+import React, { TouchEventHandler } from "react";
 
 import "./style.scss";
 import "./@media.scss";
@@ -26,6 +26,8 @@ const IconsList: React.FC<{ isMobile?: boolean; className?: string }> = ({ class
 }
 
 const Header: React.FC = () => {
+  const swipeRef = React.useRef<null | number>(null);
+
   const [isMobile, setIsMobile] = React.useState(false);
   const [sideMenuIsOpened, setSideMenuIsOpened] = React.useState(false);
 
@@ -46,30 +48,53 @@ const Header: React.FC = () => {
     setSideMenuIsOpened(!sideMenuIsOpened);
   }
 
+  const touchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    swipeRef.current = e.touches[0].clientX;
+  }
+
+  const touchEnd: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    if (!swipeRef.current) return;
+    const endX = e.changedTouches[0].clientX;
+    if (swipeRef.current - endX > 50) toggleSideMenuOpen();
+    swipeRef.current = null;
+  }
+
 
   return <header className="header">
     {/* на мобилке сделать выпадающее меню */}
-    {isMobile && <div className={`header__side-menu ${sideMenuIsOpened ? "opened" : ""}`}>
 
-      <div className="header__side-menu-container">
-        <div className="header__side-menu-title">
-          <p>МЕНЮ</p>
-          <button onClick={toggleSideMenuOpen} className="header__side-menu-close btn-close material-symbols-outlined">close</button>
+    {isMobile &&
+      <div
+        onClick={(e) => {
+          const clickedEl = e.target as HTMLDivElement;
+          if (clickedEl.classList.contains("side-menu-backdrop")) toggleSideMenuOpen();
+        }} className={`side-menu-backdrop ${sideMenuIsOpened ? "opened" : ""}`}>
+        <div
+          onTouchStart={touchStart}
+          onTouchEnd={touchEnd}
+          className={`header__side-menu ${sideMenuIsOpened ? "opened" : ""}`}>
+
+          <div className="header__side-menu-container">
+            <div className="header__side-menu-title">
+              <p>МЕНЮ</p>
+              <button onClick={toggleSideMenuOpen} className="header__side-menu-close btn-close material-symbols-outlined">close</button>
+            </div>
+
+            <PagesNav />
+
+            <IconsList isMobile />
+          </div>
+          <div className="header__side-menu-copyrights">
+            <a className="copyrights__mail" href="mailto:outsideoffficial@gmail.com"><span className="material-symbols-outlined">mail</span>outsideoffficial@gmail.com</a>
+
+            <p>
+              <a href="#">Terms of Service</a>
+              <a href="#">Privacy Policy</a>
+            </p>
+          </div>
         </div>
-
-        <PagesNav />
-
-        <IconsList isMobile />
       </div>
-      <div className="header__side-menu-copyrights">
-        <a className="copyrights__mail" href="mailto:outsideoffficial@gmail.com"><span className="material-symbols-outlined">mail</span>outsideoffficial@gmail.com</a>
-
-        <p>
-          <a href="#">Terms of Service</a>
-          <a href="#">Privacy Policy</a>
-        </p>
-      </div>
-    </div>}
+    }
 
     <div className="container">
 
@@ -85,4 +110,4 @@ const Header: React.FC = () => {
   </header>;
 }
 
-export {Header, PagesNav, IconsList};
+export { Header, PagesNav, IconsList };
