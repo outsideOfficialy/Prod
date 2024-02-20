@@ -1,10 +1,10 @@
 "use client";
 
-import Image from 'next/image'
-import Page from '@/components/Page'
-import imgMobile from "@/public/dan-mobile.png";
-import imgDesktop from "@/public/dan-desktop.png";
-import React, { useEffect } from 'react';
+import Image from "next/image";
+import Page from "@/components/Page";
+import imgMobile from "@/public/dan_4x_mobile.webp";
+import imgDesktop from "@/public/dan_3x_desktop.webp";
+import React, { useEffect } from "react";
 
 export default function Home() {
   const [isMobile, setIsMobile] = React.useState(false);
@@ -15,15 +15,20 @@ export default function Home() {
     };
     checkScreenWidth();
 
-    window.addEventListener('resize', checkScreenWidth);
+    window.addEventListener("resize", checkScreenWidth);
 
-    return () => window.removeEventListener('resize', checkScreenWidth);
+    return () => window.removeEventListener("resize", checkScreenWidth);
   });
 
   return (
     <Page>
       {/* just for some content */}
-      <Image style={{ "width": "100%", "height": "100vh" }} src={isMobile ? imgMobile : imgDesktop} alt="banner" />
+      <Image
+        style={{ width: "100%", height: "100vh" }}
+        src={isMobile ? imgMobile : imgDesktop}
+        alt="banner"
+        priority={true}
+      />
     </Page>
-  )
+  );
 }
