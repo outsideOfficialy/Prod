@@ -13,8 +13,8 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
   return <footer className="footer">
     <motion.div
       // ANIM
-      initial={{ opacity: 0, translateX: -20 }}
-      whileInView={{ opacity: 1, translateX: 0 }}
+      initial={{ opacity: 0, translateY: -50 }}
+      whileInView={{ opacity: 1, translateY: 0 }}
       transition={{ duration: .3, delay: .5 }}
       viewport={{ once: false }}
       className="container">
