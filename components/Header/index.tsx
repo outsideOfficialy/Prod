@@ -1,19 +1,48 @@
-import React, { TouchEventHandler } from "react";
+import React from "react";
 
 import "./style.scss";
 import "./@media.scss";
 
-const PagesNav: React.FC<{ isMobile?: boolean; className?: string; extraLinks?: string[] }> = ({ extraLinks, className, isMobile = false }) => {
-  return <ul className={!className ? "header__btns-container header__nav" : className}>
-    {extraLinks ? extraLinks.map((el, idx) => <li key={idx}>{el}</li>) : null}
-    <li>Новини</li>
-    <li>Музика</li>
-    <li>Мерч</li>
-    <li>Про нас</li>
-  </ul>
+import LinkedList from "../LinkedList";
+
+interface PagesNavProps {
+  isMobile?: boolean;
+  className?: string;
+  extraLinks?: { title: string, link: string }[]
 }
 
-const IconsList: React.FC<{ isMobile?: boolean; className?: string }> = ({ className, isMobile = false }) => {
+const PagesNav: React.FC<PagesNavProps> = ({ extraLinks, className, isMobile = false }) => {
+
+  const links = [
+    {
+      title: "Новини",
+      link: "/news"
+    },
+    {
+      title: "Музика",
+      link: "/news"
+    },
+    {
+      title: "Про нас",
+      link: "/news"
+    },
+    {
+      title: "Мерч",
+      link: "/news"
+    }
+  ];
+  if (extraLinks && extraLinks.length) extraLinks.forEach(el => links.unshift(el));
+
+  return <LinkedList
+    className={!className ? "header__btns-container header__nav" : className}
+    links={links}
+  />
+}
+
+const IconsList: React.FC<{
+  isMobile?: boolean;
+  className?: string
+}> = ({ className, isMobile = false }) => {
   return <div className={!className ? "header__btns-container header__icons" : className}>
     {isMobile && <p>Наші соц. мережи</p>}
     <div className="icons-container">
@@ -25,23 +54,15 @@ const IconsList: React.FC<{ isMobile?: boolean; className?: string }> = ({ class
   </div>
 }
 
-const Header: React.FC = () => {
+const Header: React.FC<{ isMobile: boolean }> = ({
+  isMobile
+}) => {
   const swipeRef = React.useRef<null | number>(null);
 
-  const [isMobile, setIsMobile] = React.useState(false);
   const [sideMenuIsOpened, setSideMenuIsOpened] = React.useState(false);
 
   React.useEffect(() => {
     document.body.style.overflow = sideMenuIsOpened ? "hidden" : "visible";
-
-    const checkScreenWidth = () => {
-      setIsMobile(window.innerWidth <= 991);
-    };
-    checkScreenWidth();
-
-    window.addEventListener('resize', checkScreenWidth);
-
-    return () => window.removeEventListener('resize', checkScreenWidth);
   }, [sideMenuIsOpened]);
 
   const toggleSideMenuOpen = () => {

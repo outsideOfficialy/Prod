@@ -1,9 +1,7 @@
 @import "@/src/app/shortClasses.scss";
 
 .footer {
-  // i should delete it some time later
-  overflow: hidden;
-  --nav-btns-font-size: 18;
+  --nav-btns-font-size: 18px;
   --nav-logo-font-size: 54px;
 
   --nav-btns-container-size: 550px;
@@ -12,6 +10,19 @@
 
   padding: 30px 0 10px 0;
   color: var(--white-half);
+
+  &-icons-container {
+    .icons-container {
+      display: flex;
+      gap: 20px;
+
+      &__logo {
+        width: var(--footer-icons-size);
+        height: var(--footer-icons-size);
+        background-color: grey;
+      }
+    }
+  }
 
   // отдел с навигацией и лого
   &-nav {
@@ -28,12 +39,15 @@
       text-transform: uppercase;
     }
 
-    // списки с кнопками страниц
-    &__pages-nav {
+    &-pages-container {
       @include flex(space-between);
       @include width(100%, var(--nav-btns-container-size));
+      div {width: 100%;}
+    }
+    // списки с кнопками страниц
+    &__pages-nav {
       font-size: var(--nav-btns-font-size);
-
+      @include flex(space-between);
       li {
         transition: 0.3s;
         cursor: pointer;
@@ -43,7 +57,6 @@
         }
       }
     }
-
   }
 
   // копирайты
@@ -55,10 +68,9 @@
       * {
         font-weight: 300;
       }
-      
+
       .copyrights-date {
         font-size: 16px;
-        
       }
 
       &__links {
@@ -67,9 +79,9 @@
         gap: 10px;
         text-decoration: underline;
 
-        & a:last-child {
+        & li:last-child a {
           position: relative;
-          
+
           &::before {
             content: "●";
             font-size: 10px;
