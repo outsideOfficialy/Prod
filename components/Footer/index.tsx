@@ -15,8 +15,8 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
       // ANIM
       initial={{ opacity: 0, translateX: -20 }}
       whileInView={{ opacity: 1, translateX: 0 }}
-      transition={{ duration: .3 }}
-      viewport={{ once: true }}
+      transition={{ duration: .3, delay: .5 }}
+      viewport={{ once: false }}
       className="container">
       <div className="footer-nav">
         <h1 className="footer-nav__logo">outside
@@ -25,7 +25,7 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
             initial={{ opacity: 0, width: 0 }}
             whileInView={{ opacity: 1, width: "100%" }}
             transition={{ duration: .5, delay: .3 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="separate-line" />
         </h1>
 
@@ -55,7 +55,7 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
             initial={{ opacity: 0, width: 0 }}
             whileInView={{ opacity: 1, width: "100%" }}
             transition={{ duration: .5 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="separate-line" />
         </div>
         {isMobile && <IconsList className="footer-icons-container" />}
