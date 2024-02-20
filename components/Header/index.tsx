@@ -4,6 +4,7 @@ import "./style.scss";
 import "./@media.scss";
 
 import LinkedList from "../LinkedList";
+import { motion } from "framer-motion";
 
 interface PagesNavProps {
   isMobile?: boolean;
@@ -79,9 +80,14 @@ const Header: React.FC<{ isMobile: boolean }> = ({
     if (swipeRef.current - endX > 50) toggleSideMenuOpen();
     swipeRef.current = null;
   }
+  // search for ANIM to find my purposes for animations
 
-
-  return <header className="header">
+  return <motion.header
+    // ANIM
+    initial={{ opacity: 0, translateY: -50 }}
+    animate={{ opacity: 1, translateY: 0 }}
+    transition={{ duration: .3 }}
+    className="header">
     {/* на мобилке сделать выпадающее меню */}
 
     {isMobile &&
@@ -124,11 +130,23 @@ const Header: React.FC<{ isMobile: boolean }> = ({
       {/* если не мобилка, то отобразить иконки и навигацию на ряду с лого */}
       {!isMobile && <PagesNav />}
 
-      <h1 className="header__logo">outside</h1>
+      <motion.h1
+        // ANIM
+        // initial={{ opacity: 0, translateY: -50 }}
+        // animate={{ opacity: 1, translateY: 0 }}
+        // transition={{ duration: 0.5 }}
+        className="header__logo">outside</motion.h1>
 
       {!isMobile && <IconsList />}
     </div>
-  </header>;
+
+    <motion.hr
+      // ANIM 
+      initial={{ opacity: 0, width: 0 }}
+      animate={{ opacity: 1, width: "100%" }}
+      transition={{ duration: .5, delay: .3 }}
+      className="separate-line" />
+  </motion.header>;
 }
 
 export { Header, PagesNav, IconsList };

@@ -4,16 +4,30 @@ import "./@media.scss"
 import React from "react";
 import { PagesNav, IconsList } from "../Header";
 import LinkedList from "../LinkedList";
-
+import { motion } from "framer-motion";
 
 const Footer: React.FC<{ isMobile: boolean }> = ({
   isMobile
 }) => {
 
   return <footer className="footer">
-    <div className="container">
+    <motion.div
+      // ANIM
+      initial={{ opacity: 0, translateX: -20 }}
+      whileInView={{ opacity: 1, translateX: 0 }}
+      transition={{ duration: .3 }}
+      viewport={{ once: true }}
+      className="container">
       <div className="footer-nav">
-        <h1 className="footer-nav__logo">outside</h1>
+        <h1 className="footer-nav__logo">outside
+          <motion.hr
+            // ANIM
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: "100%" }}
+            transition={{ duration: .5, delay: .3 }}
+            viewport={{ once: true }}
+            className="separate-line" />
+        </h1>
 
         <div className="footer-nav-pages-container">
           <div>
@@ -33,9 +47,16 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
                   title: "Privacy Policy",
                   link: ""
                 }
-              ]}/>
+              ]} />
             </div>
           }
+          <motion.hr
+            // ANIM
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: "100%" }}
+            transition={{ duration: .5 }}
+            viewport={{ once: true }}
+            className="separate-line" />
         </div>
         {isMobile && <IconsList className="footer-icons-container" />}
       </div>
@@ -59,7 +80,7 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
         <a className="copyrights__mail" href="mailto:outsideoffficial@gmail.com"><span className="material-symbols-outlined">mail</span>outsideoffficial@gmail.com</a>
       </div>
 
-    </div>
+    </motion.div>
   </footer>;
 }
 
