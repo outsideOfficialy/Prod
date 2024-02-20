@@ -150,7 +150,7 @@ const Header: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
       <div className="container">
         {isMobile && (
           <button
-            className="header__side-menu-btn material-symbols-outlined"
+            className="header__side-menu-btn material-symbols-rounded"
             onClick={toggleSideMenuOpen}
           >
             menu
