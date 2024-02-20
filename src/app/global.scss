@@ -1,0 +1,170 @@
+@import "./shortClasses.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  /*! COLORS */
+  --black: #1e1e1e;
+  --black-half: #1e1e1e55;
+  --main-primary-color: #ec642b;
+  --primary-color: #ed772f;
+  --sub-primary-color: #ef9335;
+  --grey: #afac95;
+  --white-half: #e3e7d9;
+  --white: #fff;
+  --side-menu-backdrop-color: #1e1e1e70;
+
+  --separator-border: 1px solid var(--white-half);
+
+  /*! FONTS */
+  --page-font: "Montserrat";
+  --titles-font: "Dela Gothic One";
+}
+
+body {
+  background-color: var(--black);
+  font-family: var(--page-font);
+  color: var(--white-half);
+}
+
+main {
+  min-height: 100vh;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  --container-top-padding: 0;
+  --container-side-padding: 15px;
+  --container-width: calc(var(--container-side-padding) * 2 + 1390px);
+
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: var(--container-top-padding) var(--container-side-padding);
+}
+
+.separate-line {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: var(--white-half);
+  outline: none;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin section-title {
+  --section-title-font-size: 54px;
+
+  font-size: var(--section-title-font-size);
+}
+
+.underlined-title {
+  @include section-title;
+  /* потом накину сюда стилей и переменных */
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color: var(--white-half);
+
+  &:hover {
+    color: var(--white);
+  }
+}
+
+/* класс кнопки для обнуления дефолтных стилей кнопки */
+@mixin btn {
+  /* по дефолту кнопка будет выглядеть как кнопка btn-main-primary */
+  --width: 350px;
+  --padding: 21.5px 20px;
+  --font-size: 24px;
+  --text-color: var(--black);
+  --hover-bg-color: var(--sub-primary-color);
+  --hover-text-color: var(--text-color);
+
+  --focus-bg-color: var(--primary-color);
+  --focus-text-color: var(--text-color);
+
+  --transition-time: 0.3s;
+  --bg-color: var(--main-primary-color);
+  --border: none;
+  --box-shadow: none;
+
+  box-shadow: var(--box-shadow);
+  transition: var(--transition-time);
+  max-width: var(--width);
+  width: 100%;
+  color: var(--text-color);
+  padding: var(--padding);
+  font-size: var(--font-size);
+  background-color: var(--bg-color);
+  border: var(--border);
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+  }
+
+  &:focus {
+    background-color: var(--focus-bg-color);
+    color: var(--focus-text-color);
+  }
+}
+
+/* допустим я хочу другую кнопку */
+.btn-scroll-up {
+  @include btn;
+  /*? background: ; тут типа размещаю картинку стрелочки вверх */
+  --padding: 22px;
+  --border: 1px solid var(--white-half);
+  --width: 60px;
+  --hover-bg-color: var(--black);
+  --bg-color: var(--black-half);
+}
+
+.btn-close {
+  @include btn;
+
+  --width: min-content;
+  --padding: 0;
+  --font-size: 36px;
+  --text-color: var(--white);
+  --hover-bg-color: none;
+  --hover-text-color: var(--primary-color);
+
+  --focus-bg-color: none;
+  --focus-text-color: var(--text-color);
+
+  --transition-time: 0.3s;
+  --bg-color: transparent;
+}
+
+@media screen and (max-width: 997px) {
+  /* допустим вот адаптация под мобилку */
+  .btn-main-primary {
+    --width: none;
+    --padding: 15px;
+    --fong-size: 20px;
+  }
+}
