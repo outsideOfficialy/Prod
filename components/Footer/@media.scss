@@ -4,7 +4,7 @@
   .footer {
     --nav-logo-font-size: 36px;
 
-    --footer-icons-size: 25px;
+    --footer-icons-size: 24px;
 
     &-nav {
       flex-direction: column;
@@ -34,7 +34,6 @@
         margin-bottom: 30px;
         width: 100%;
         position: relative;
-        // border-bottom: var(--separator-border);
       }
 
       &__pages-nav {
@@ -47,6 +46,15 @@
       flex-direction: column-reverse;
       align-items: start;
       gap: 16.5px;
+    }
+
+    .icons-container {
+      max-width: 140px;
+
+      .icons-container__logo img {
+        width: var(--footer-icons-size);
+        height: var(--footer-icons-size);
+      }
     }
   }
 }
