@@ -123,7 +123,7 @@ const Header: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
                 <p>МЕНЮ</p>
                 <button
                   onClick={toggleSideMenuOpen}
-                  className="header__side-menu-close btn-close material-symbols-outlined"
+                  className="header__side-menu-close btn-close material-symbols-rounded"
                 >
                   close
                 </button>

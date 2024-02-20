@@ -42,13 +42,16 @@
 
       .icons-container {
         max-width: 140px;
+
+        .icons-container__logo img {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
 
     &__logo {
       margin: 0;
     }
-
-    
   }
 }
