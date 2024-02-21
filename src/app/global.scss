@@ -26,6 +26,25 @@
   --titles-font: "Dela Gothic One";
 }
 
+/* customize the scrollbar Width & Height */
+::-webkit-scrollbar {
+  /* vertical scrollbar */
+  width: 2px;
+
+  /* horizontal scrollbar */
+  height: 1px;
+}
+
+/* customize the scrollbar Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* customize the scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--white-half);
+}
+
 body {
   background-color: var(--black);
   font-family: var(--page-font);
