@@ -82,6 +82,27 @@ ul {
   transform: translateX(-50%);
 }
 
+.page-loader {
+  position: fixed;
+  z-index: -10;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  width: 100%;
+  height: 100dvh;
+  background: var(--black);
+  color: var(--grey);
+  @include flex(center, center);
+
+  &.show {
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 @mixin section-title {
   --section-title-font-size: 54px;
 

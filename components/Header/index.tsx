@@ -23,15 +23,15 @@ const PagesNav: React.FC<PagesNavProps> = ({ extraLinks, className, isMobile = f
     },
     {
       title: "Музика",
-      link: "/news"
+      link: "/music"
     },
     {
       title: "Про нас",
-      link: "/news"
+      link: "/about-us"
     },
     {
       title: "Мерч",
-      link: "/news"
+      link: "/merch"
     }
   ];
   if (extraLinks && extraLinks.length) extraLinks.forEach((el) => links.unshift(el));

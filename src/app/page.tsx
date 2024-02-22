@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Page from "@/components/Page";
+import PageLayout from "@/components/PageLayout";
 import imgMobile from "@/public/dan_4x_mobile.webp";
 import imgDesktop from "@/public/dan_3x_desktop.webp";
 import React, { useEffect } from "react";
@@ -21,7 +21,7 @@ export default function Home() {
   });
 
   return (
-    <Page>
+    <PageLayout>
       {/* just for some content */}
       <Image
         style={{ width: "100%", height: "100vh" }}
@@ -29,6 +29,6 @@ export default function Home() {
         alt="banner"
         priority={true}
       />
-    </Page>
+    </PageLayout>
   );
 }

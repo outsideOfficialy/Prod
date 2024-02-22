@@ -41,11 +41,11 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
               <LinkedList className="footer-nav__links" links={[
                 {
                   title: "Terms of Sevice",
-                  link: ""
+                  link: "/terms-of-service"
                 },
                 {
                   title: "Privacy Policy",
-                  link: ""
+                  link: "/privacy-policy"
                 }
               ]} />
             </div>
@@ -68,11 +68,11 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
           {!isMobile && <LinkedList className="copyrights-container__links" links={[
             {
               title: "Terms of Sevice",
-              link: ""
+              link: "/terms-of-service"
             },
             {
               title: "Privacy Policy",
-              link: ""
+              link: "/privacy-policy"
             }
           ]} />}
         </div>

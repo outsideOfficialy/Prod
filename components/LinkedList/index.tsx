@@ -5,7 +5,7 @@ const LinkedList: React.FC<{
 
   return <ul className={className ? className : ""}>
     {links ? links.map((el, idx) => <li key={idx}>
-      <a href="#">{el.title}</a>
+      <a href={el.link}>{el.title}</a>
     </li>) : null}
   </ul>;
 }

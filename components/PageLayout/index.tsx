@@ -11,7 +11,7 @@ interface PageProps {
   footer?: boolean | undefined;
 }
 
-const Page: React.FC<PageProps> = ({
+const PageLayout: React.FC<PageProps> = ({
   children,
   header,
   footer
@@ -41,4 +41,4 @@ const Page: React.FC<PageProps> = ({
   </>
 }
 
-export default Page;
+export default PageLayout;
