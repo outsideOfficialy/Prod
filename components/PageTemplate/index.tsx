@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 interface PageTemplateProps {
   children: React.ReactNode | React.ReactNode[];
@@ -8,17 +8,17 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   children
 }) => {
   const [showLoader, setShowLoader] = React.useState(true);
+  // window.document.body.style.overflowY = "hidden";
 
   React.useEffect(() => {
-    document.body.style.overflowY = "hidden";
+
     const loadEndHandler = () => {
       setShowLoader(false);
       document.body.style.overflowY = "scroll";
     };
 
-    document.addEventListener("load", loadEndHandler);
-
-    return document.removeEventListener("load", loadEndHandler);
+    loadEndHandler();
+    
   });
 
   return <main>
