@@ -27,12 +27,12 @@ export default function Home() {
     <PageLayout>
       {/* just for some content */}
       <Slider></Slider>
-      <Image
+      {/* <Image
         style={{ width: "100%", height: "100vh" }}
         src={isMobile ? imgMobile : imgDesktop}
         alt="banner"
         priority={true}
-      />
+      /> */}
     </PageLayout>
   );
 }
