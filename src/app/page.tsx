@@ -6,6 +6,9 @@ import imgMobile from "@/public/dan_4x_mobile.webp";
 import imgDesktop from "@/public/dan_3x_desktop.webp";
 import React, { useEffect } from "react";
 
+// Slider
+import Slider from "@/components/slider";
+
 export default function Home() {
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -23,6 +26,7 @@ export default function Home() {
   return (
     <PageLayout>
       {/* just for some content */}
+      <Slider></Slider>
       <Image
         style={{ width: "100%", height: "100vh" }}
         src={isMobile ? imgMobile : imgDesktop}
