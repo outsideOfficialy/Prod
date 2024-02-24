@@ -40,14 +40,14 @@ export default function Slider() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 7500,
           disableOnInteraction: false
         }}
         pagination={{
           clickable: true
         }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper"
+        className="SwiperMainPage"
       >
         <SwiperSlide>
           <Image src={isMobile ? imgMobile : imgDesktop} alt="banner" priority={true} />

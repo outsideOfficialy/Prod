@@ -1,0 +1,27 @@
+@media (max-width: 991px) {
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 15px;
+    height: 15px;
+  }
+
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 25px);
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: var(--container-width);
+    padding: var(--container-top-padding) var(--container-side-padding);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+  }
+}
