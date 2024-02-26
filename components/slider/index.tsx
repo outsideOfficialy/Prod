@@ -11,8 +11,8 @@ interface Slide {
   id: string;
   title: string;
   link: string;
-  preview_picture_mobile: string | never;
-  preview_picture_desktop: string | never;
+  preview_picture_mobile: string;
+  preview_picture_desktop: string;
   send_later: string;
 }
 
@@ -60,19 +60,19 @@ export default function Slider() {
         modules={[Autoplay, Pagination]}
         className="SwiperMainPage"
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <Image
-              src={
-                isMobile
-                  ? (slide.preview_picture_mobile as string)
-                  : (slide.preview_picture_desktop as string)
-              }
-              alt={slide.title}
-              priority={true}
-            />
-          </SwiperSlide>
-        ))}
+        {slides.map((slide) => {
+          const relativeLink = JSON.parse(slide.preview_picture_desktop)[0];
+          const linkToImg = "https://www.backend.outside-official.com/" + relativeLink;
+          return (
+            <SwiperSlide key={slide.id}>
+              <Image
+                src={isMobile ? slide.preview_picture_mobile : linkToImg}
+                alt={slide.title}
+                priority={true}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );
