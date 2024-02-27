@@ -51,7 +51,7 @@ export default function Slider() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 7500,
+          delay: 70500000,
           disableOnInteraction: false
         }}
         pagination={{
@@ -68,7 +68,9 @@ export default function Slider() {
           return (
             <SwiperSlide key={slide.id}>
               <a href={slide.link}>
-                <h2>{slide.title}</h2>
+                <div className="SwiperMainPage__title">
+                  <h2>{slide.title}</h2>
+                </div>
                 <img src={linkToImg} alt={slide.title} />
               </a>
             </SwiperSlide>

@@ -9,6 +9,27 @@
     height: 15px;
   }
 
+  .swiper-slide .SwiperMainPage__title {
+    max-width: 1390px;
+    width: 100%;
+    padding: 15px;
+    h2 {
+      max-width: 275px;
+      font-size: 48px;
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 3%;
+        transform: translate(0, -50%);
+        width: 60%;
+        height: 80%;
+        background-color: var(--black);
+      }
+    }
+  }
+
   .swiper-pagination-fraction,
   .swiper-pagination-custom,
   .swiper-horizontal > .swiper-pagination-bullets,
@@ -22,6 +43,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
   }
 }
