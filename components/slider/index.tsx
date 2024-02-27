@@ -67,7 +67,10 @@ export default function Slider() {
             : backEndURL + JSON.parse(slide.preview_picture_desktop)[0];
           return (
             <SwiperSlide key={slide.id}>
-              <img src={linkToImg} alt={slide.title} />
+              <a href={slide.link}>
+                <h2>{slide.title}</h2>
+                <img src={linkToImg} alt={slide.title} />
+              </a>
             </SwiperSlide>
           );
         })}

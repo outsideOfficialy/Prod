@@ -6,12 +6,16 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: var(--white-half);
 
   /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.swiper-slide a {
+  position: relative;
 }
 
 .swiper-slide img {
@@ -21,7 +25,31 @@
   object-fit: cover;
 }
 
-.swiper-pagination-fraction,
+.swiper-slide h2 {
+  font-size: 96px;
+  max-width: 1390px;
+  width: 100%;
+  font-family: "Dela Gothic One", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: var(--white-half);
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 3%;
+    transform: translate(0, -50%);
+    width: 60%;
+    height: 80%;
+    background-color: var(--black);
+  }
+}
+
+.swiper-slide h2 .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
