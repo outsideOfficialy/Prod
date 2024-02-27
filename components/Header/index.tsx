@@ -70,7 +70,7 @@ const IconsList: React.FC<{
   );
 };
 
-const Header: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
+const Header: React.FC<{ isMobile: boolean, transparentHeader?: boolean; }> = ({ isMobile, transparentHeader }) => {
   const swipeRef = React.useRef<null | number>(null);
 
   const [sideMenuIsOpened, setSideMenuIsOpened] = React.useState(false);
@@ -101,10 +101,8 @@ const Header: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
       initial={{ opacity: 0, translateY: -50 }}
       animate={{ opacity: 1, translateY: 0 }}
       transition={{ duration: 0.3 }}
-      className="header"
+      className={`header ${transparentHeader ? "transparent" : ""}`}
     >
-      {/* на мобилке сделать выпадающее меню */}
-
       {isMobile && (
         <div
           onClick={(e) => {
@@ -167,7 +165,9 @@ const Header: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
           // transition={{ duration: 0.5 }}
           className="header__logo"
         >
-          outside
+          <a href="/">
+            outside
+          </a>
         </motion.h1>
 
         {!isMobile && <IconsList />}
