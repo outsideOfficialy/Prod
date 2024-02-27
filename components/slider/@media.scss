@@ -1,14 +1,5 @@
 @media (max-width: 991px) {
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-  }
-
-  .swiper-pagination-bullet-active {
-    width: 15px;
-    height: 15px;
-  }
-
+  // Slide setup
   .swiper-slide .SwiperMainPage__title {
     max-width: 1390px;
     width: 100%;
@@ -28,6 +19,17 @@
         background-color: var(--black);
       }
     }
+  }
+
+  // Pagination setup
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 15px;
+    height: 15px;
   }
 
   .swiper-pagination-fraction,

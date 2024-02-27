@@ -1,7 +1,11 @@
+// Slider setup
+
 .swiper {
   width: 100%;
   max-height: 100dvh;
 }
+
+// Slide setup
 
 .swiper-slide {
   text-align: center;
@@ -12,46 +16,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   a {
     position: relative;
     width: 100%;
   }
+
   img {
     display: block;
     width: 100dvw;
     height: 100dvh;
     object-fit: cover;
   }
-}
 
-.swiper-slide .SwiperMainPage__title {
-  max-width: 1390px;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  h2 {
-    max-width: 600px;
-    font-size: 96px;
-    width: fit-content;
-    font-family: "Dela Gothic One", sans-serif;
-    text-align: left;
-    color: var(--white-half);
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 50%;
-      left: 3%;
-      transform: translate(0, -50%);
-      width: 60%;
-      height: 80%;
-      background-color: var(--black);
+  .SwiperMainPage__title {
+    max-width: 1390px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h2 {
+      max-width: 600px;
+      font-size: 96px;
+      width: fit-content;
+      font-family: "Dela Gothic One", sans-serif;
+      text-align: left;
+      color: var(--white-half);
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 3%;
+        transform: translate(0, -50%);
+        width: 60%;
+        height: 80%;
+        background-color: var(--black);
+      }
     }
   }
 }
+
+// Pagination setup
 
 .swiper-slide h2 .swiper-pagination-fraction,
 .swiper-pagination-custom,
