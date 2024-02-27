@@ -7,13 +7,18 @@
   --nav-btns-container-size: 443px;
   --nav-btn-container-side-padding: 15px;
 
-  --header-bg-color: var(--black-half);
+  --header-bg-color: var(--black);
+  --header-position: sticky;
+  &.transparent {
+    --header-bg-color: var(--black-half);
+    --header-position: fixed;
+  }
   --header-top-paddings: 15px;
 
   --header-icons-size: 32px;
 
   padding: var(--header-top-paddings) 0;
-  position: fixed;
+  position: var(--header-position);
   width: 100%;
   z-index: 9;
   font-size: var(--nav-btns-font-size);
