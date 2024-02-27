@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
-import imgMobile from "@/public/dan_4x_mobile.webp";
-import imgDesktop from "@/public/dan_3x_desktop.webp";
 
 interface Slide {
   id: string;
@@ -61,12 +59,13 @@ export default function Slider() {
         className="SwiperMainPage"
       >
         {slides.map((slide) => {
-          const relativeLink = JSON.parse(slide.preview_picture_desktop)[0];
-          const linkToImg = "https://www.backend.outside-official.com/" + relativeLink;
+          const linkToImg =
+            "https://www.backend.outside-official.com/" +
+            JSON.parse(slide.preview_picture_desktop)[0];
           return (
             <SwiperSlide key={slide.id}>
               <Image
-                src={isMobile ? slide.preview_picture_mobile : linkToImg}
+                src={isMobile ? JSON.parse(slide.preview_picture_mobile)[0] : linkToImg}
                 alt={slide.title}
                 priority={true}
               />
