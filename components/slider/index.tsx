@@ -62,7 +62,8 @@ export default function Slider() {
       >
         {slides.map((slide) => {
           const linkToImg = isMobile
-            ? JSON.parse(slide.preview_picture_mobile)[0]
+            ? "https://www.backend.outside-official.com/" +
+              JSON.parse(slide.preview_picture_mobile)[0]
             : "https://www.backend.outside-official.com/" +
               JSON.parse(slide.preview_picture_desktop)[0];
           return (
