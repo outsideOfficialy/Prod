@@ -61,11 +61,10 @@ export default function Slider() {
         className="SwiperMainPage"
       >
         {slides.map((slide) => {
+          const backEndURL = "https://www.backend.outside-official.com/";
           const linkToImg = isMobile
-            ? "https://www.backend.outside-official.com/" +
-              JSON.parse(slide.preview_picture_mobile)[0]
-            : "https://www.backend.outside-official.com/" +
-              JSON.parse(slide.preview_picture_desktop)[0];
+            ? backEndURL + JSON.parse(slide.preview_picture_mobile)[0]
+            : backEndURL + JSON.parse(slide.preview_picture_desktop)[0];
           return (
             <SwiperSlide key={slide.id}>
               <img src={linkToImg} alt={slide.title} />
