@@ -51,7 +51,7 @@ export default function Slider() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 70500000,
+          delay: 7500,
           disableOnInteraction: false
         }}
         pagination={{
