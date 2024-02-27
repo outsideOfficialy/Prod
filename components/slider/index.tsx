@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+
+import "./style.scss";
+import "./@media.scss";
 
 interface Slide {
   id: string;
@@ -59,16 +61,13 @@ export default function Slider() {
         className="SwiperMainPage"
       >
         {slides.map((slide) => {
-          const linkToImg =
-            "https://www.backend.outside-official.com/" +
-            JSON.parse(slide.preview_picture_desktop)[0];
+          const linkToImg = isMobile
+            ? JSON.parse(slide.preview_picture_mobile)[0]
+            : "https://www.backend.outside-official.com/" +
+              JSON.parse(slide.preview_picture_desktop)[0];
           return (
             <SwiperSlide key={slide.id}>
-              <Image
-                src={isMobile ? JSON.parse(slide.preview_picture_mobile)[0] : linkToImg}
-                alt={slide.title}
-                priority={true}
-              />
+              <img src={linkToImg} alt={slide.title} />
             </SwiperSlide>
           );
         })}
