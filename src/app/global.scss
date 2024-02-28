@@ -76,6 +76,18 @@ ul {
   padding: var(--container-top-padding) var(--container-side-padding);
 }
 
+.gap-60 {
+  @include flex(center, start);
+  flex-direction: column;
+  gap: 60px;
+}
+
+@media screen and (max-width: 997px) {
+  .gap-60 {
+    gap: 45px;
+  }
+}
+
 .separate-line {
   position: absolute;
   bottom: 0;
@@ -141,6 +153,14 @@ ul {
   font-family: var(--titles-font);
   position: relative;
   padding-bottom: var(--underline-indent);
+}
+
+.sub-title {
+  font-family: var(--page-font);
+  color: var(--white-half);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.5px;
 }
 
 button {
