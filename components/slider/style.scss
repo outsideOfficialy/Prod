@@ -1,3 +1,5 @@
+@import "@/src/app/shortClasses.scss";
+
 // Slider setup
 
 .swiper {
@@ -8,14 +10,12 @@
 // Slide setup
 
 .swiper-slide {
+  /* Center slide text vertically */
+  @include flex(center, center);
+
   text-align: center;
   font-size: 18px;
   background: var(--white-half);
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   a {
     position: relative;
@@ -65,9 +65,7 @@
 .whiteDots .swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets .swiper-pagination-horizontal {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex(flex-start, center);
 
   --container-top-padding: 0;
   --container-side-padding: 15px;
