@@ -11,6 +11,7 @@
   /*! COLORS */
   --black: #1e1e1e;
   --black-half: #1e1e1e75;
+  --black-half-dark: #1e1e1e85;
   --main-primary-color: #ec642b;
   --primary-color: #ed772f;
   --sub-primary-color: #ef9335;
@@ -122,6 +123,7 @@ ul {
     left: 0;
     max-width: var(--underline-max-width);
     border: none;
+    width: 100%;
     outline: none;
     height: var(--underline-height);
     bottom: 0;
@@ -134,6 +136,12 @@ ul {
     --underline-max-width: 140px;
     --underline-indent: 10px;
   }
+}
+
+@mixin secion-subtitle {
+  @include section-title();
+  
+  --underline-max-width: none;
 }
 
 .underlined-title {
