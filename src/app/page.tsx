@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import PageLayout from "@/components/PageLayout";
-import imgMobile from "@/public/dan_4x_mobile.webp";
-import imgDesktop from "@/public/dan_3x_desktop.webp";
 import React, { useEffect } from "react";
 
 // Slider
