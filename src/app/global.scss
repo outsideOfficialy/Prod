@@ -117,6 +117,17 @@ ul {
 
   font-size: var(--section-title-font-size);
 
+  hr {
+    position: absolute;
+    left: 0;
+    max-width: var(--underline-max-width);
+    border: none;
+    outline: none;
+    height: var(--underline-height);
+    bottom: 0;
+    background-color: var(--main-primary-color);
+  }
+
   @include max-w-media(991px) {
     --section-title-font-size: 28px;
     --underline-height: 1px;
@@ -130,18 +141,6 @@ ul {
   font-family: var(--titles-font);
   position: relative;
   padding-bottom: var(--underline-indent);
-
-  hr {
-    position: absolute;
-    left: 0;
-    max-width: var(--underline-max-width);
-    border: none;
-    outline: none;
-    height: var(--underline-height);
-    bottom: 0;
-    background-color: var(--main-primary-color);
-  }
-  /* потом накину сюда стилей и переменных */
 }
 
 button {
@@ -203,7 +202,6 @@ a {
   }
 }
 
-/* допустим я хочу другую кнопку */
 .btn-scroll-up {
   @include btn;
   --padding: 0;
