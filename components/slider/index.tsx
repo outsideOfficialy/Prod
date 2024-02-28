@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { SERVER_ROOT } from "@/utils/variables";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper/modules";
 
 import "./style.scss";
 import "./@media.scss";
@@ -23,7 +26,7 @@ export default function Slider() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://www.backend.outside-official.com/slider/");
+        const response = await fetch(`${SERVER_ROOT}/slider/`);
         const data: Slide[] = await response.json();
         setSlides(data);
       } catch (error) {
@@ -59,10 +62,9 @@ export default function Slider() {
         className="swiper-main-page white-dots"
       >
         {slides.map((slide) => {
-          const backEndURL = "https://www.backend.outside-official.com/";
           const linkToImg = isMobile
-            ? backEndURL + JSON.parse(slide.preview_picture_mobile)[0]
-            : backEndURL + JSON.parse(slide.preview_picture_desktop)[0];
+            ? `${SERVER_ROOT}/${JSON.parse(slide.preview_picture_mobile)}`
+            : `${SERVER_ROOT}/${JSON.parse(slide.preview_picture_desktop)}`;
           return (
             <SwiperSlide key={slide.id} className="slide-main-page">
               <a href={slide.link}>
