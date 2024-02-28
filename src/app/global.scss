@@ -55,7 +55,10 @@ main {
   min-height: 300vh;
   background: url("../../public/bg.webp") repeat-y 0 0;
   background-size: 100% auto;
-  padding-top: 50px;
+
+  .container {
+    padding-top: 50px;
+  }
 }
 
 ul {
