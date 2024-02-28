@@ -32,7 +32,7 @@
 
     &__icons {
       --max-width: none;
-      --header-icons-size: 20px;
+      --header-icons-size: 24px;
 
       p {
         font-size: 16px;
@@ -42,13 +42,16 @@
 
       .icons-container {
         max-width: 140px;
+
+        .icons-container__logo img {
+          width: var(--header-icons-size);
+          height: var(--header-icons-size);
+        }
       }
     }
 
     &__logo {
       margin: 0;
     }
-
-    
   }
 }

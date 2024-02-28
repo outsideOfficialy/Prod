@@ -19,7 +19,10 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
       viewport={{ once: false }}
       className="container">
       <div className="footer-nav">
-        <h1 className="footer-nav__logo">outside
+        <h1 className="footer-nav__logo">
+          <a href="/">
+            outside
+          </a>
           <motion.hr
             // ANIM
             initial={{ opacity: 0, width: 0 }}
@@ -41,11 +44,11 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
               <LinkedList className="footer-nav__links" links={[
                 {
                   title: "Terms of Sevice",
-                  link: ""
+                  link: "/terms-of-service"
                 },
                 {
                   title: "Privacy Policy",
-                  link: ""
+                  link: "/privacy-policy"
                 }
               ]} />
             </div>
@@ -68,11 +71,11 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
           {!isMobile && <LinkedList className="copyrights-container__links" links={[
             {
               title: "Terms of Sevice",
-              link: ""
+              link: "/terms-of-service"
             },
             {
               title: "Privacy Policy",
-              link: ""
+              link: "/privacy-policy"
             }
           ]} />}
         </div>

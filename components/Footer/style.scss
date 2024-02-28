@@ -19,7 +19,6 @@
       &__logo {
         width: var(--footer-icons-size);
         height: var(--footer-icons-size);
-        background-color: grey;
       }
     }
   }
@@ -43,7 +42,9 @@
     &-pages-container {
       @include flex(space-between);
       @include width(100%, var(--nav-btns-container-size));
-      div {width: 100%;}
+      div {
+        width: 100%;
+      }
     }
     // списки с кнопками страниц
     &__pages-nav {

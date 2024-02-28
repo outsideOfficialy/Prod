@@ -9,12 +9,14 @@ interface PageProps {
   children: React.ReactNode | React.ReactNode[];
   header?: boolean | undefined;
   footer?: boolean | undefined;
+  transparentHeader?: boolean;
 }
 
-const Page: React.FC<PageProps> = ({
+const PageLayout: React.FC<PageProps> = ({
   children,
   header,
-  footer
+  footer,
+  transparentHeader
 }) => {
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -31,7 +33,7 @@ const Page: React.FC<PageProps> = ({
   
   return <>
     {/* if you write header in Page props, than it will dissappear */}
-    {header === undefined && <Header isMobile={isMobile} />}
+    {header === undefined && <Header transparentHeader={transparentHeader} isMobile={isMobile} />}
 
     <PageTemplate>
       {children}
@@ -41,4 +43,4 @@ const Page: React.FC<PageProps> = ({
   </>
 }
 
-export default Page;
+export default PageLayout;
