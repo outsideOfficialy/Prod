@@ -52,7 +52,13 @@ body {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 100dvh;
+  background: url("../../public/bg.webp") repeat-y 0 0;
+  background-size: 100% auto;
+
+  .container {
+    padding-top: 50px;
+  }
 }
 
 ul {
@@ -105,13 +111,36 @@ ul {
 
 @mixin section-title {
   --section-title-font-size: 54px;
+  --underline-height: 3px;
+  --underline-max-width: 272px;
+  --underline-indent: 10px;
 
   font-size: var(--section-title-font-size);
+
+  hr {
+    position: absolute;
+    left: 0;
+    max-width: var(--underline-max-width);
+    border: none;
+    outline: none;
+    height: var(--underline-height);
+    bottom: 0;
+    background-color: var(--main-primary-color);
+  }
+
+  @include max-w-media(991px) {
+    --section-title-font-size: 28px;
+    --underline-height: 1px;
+    --underline-max-width: 140px;
+    --underline-indent: 10px;
+  }
 }
 
 .underlined-title {
   @include section-title;
-  /* потом накину сюда стилей и переменных */
+  font-family: var(--titles-font);
+  position: relative;
+  padding-bottom: var(--underline-indent);
 }
 
 button {
@@ -135,6 +164,7 @@ a {
 @mixin btn {
   /* по дефолту кнопка будет выглядеть как кнопка btn-main-primary */
   --width: 350px;
+  --height: auto;
   --padding: 21.5px 20px;
   --font-size: 24px;
   --text-color: var(--black);
@@ -149,10 +179,10 @@ a {
   --border: none;
   --box-shadow: none;
 
+  @include width(100%, var(--width));
+  height: var(--height);
   box-shadow: var(--box-shadow);
   transition: var(--transition-time);
-  max-width: var(--width);
-  width: 100%;
   color: var(--text-color);
   padding: var(--padding);
   font-size: var(--font-size);
@@ -172,15 +202,37 @@ a {
   }
 }
 
-/* допустим я хочу другую кнопку */
 .btn-scroll-up {
   @include btn;
-  /*? background: ; тут типа размещаю картинку стрелочки вверх */
-  --padding: 22px;
+  --padding: 0;
+  --text-color: var(--white-half);
   --border: 1px solid var(--white-half);
   --width: 60px;
+  --height: 60px;
+
   --hover-bg-color: var(--black);
+  --hover-text-color: var(--white);
+  --focus-bg-color: var(--black-half);
+
   --bg-color: var(--black-half);
+
+  position: fixed;
+  z-index: 9;
+  right: 20px;
+  bottom: 20px;
+  visibility: hidden;
+  opacity: 0;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include max-w-media(991px) {
+    --width: 52px;
+    --height: 52px;
+    --font-size: 22px;
+  }
 }
 
 .btn-close {

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import PageLayout from "@/components/PageLayout";
-import imgMobile from "@/public/dan_4x_mobile.webp";
-import imgDesktop from "@/public/dan_3x_desktop.webp";
 import React, { useEffect } from "react";
+
+// Slider
+import Slider from "@/components/Slider";
 
 export default function Home() {
   const [isMobile, setIsMobile] = React.useState(false);
@@ -21,14 +21,9 @@ export default function Home() {
   });
 
   return (
-    <PageLayout>
+    <PageLayout hideScrollUpBtn transparentHeader>
       {/* just for some content */}
-      <Image
-        style={{ width: "100%", height: "100vh" }}
-        src={isMobile ? imgMobile : imgDesktop}
-        alt="banner"
-        priority={true}
-      />
+      <Slider></Slider>
     </PageLayout>
   );
 }

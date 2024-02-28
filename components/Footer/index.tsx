@@ -19,7 +19,10 @@ const Footer: React.FC<{ isMobile: boolean }> = ({
       viewport={{ once: false }}
       className="container">
       <div className="footer-nav">
-        <h1 className="footer-nav__logo">outside
+        <h1 className="footer-nav__logo">
+          <a href="/">
+            outside
+          </a>
           <motion.hr
             // ANIM
             initial={{ opacity: 0, width: 0 }}

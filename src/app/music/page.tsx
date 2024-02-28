@@ -2,10 +2,13 @@
 
 import React from "react";
 import PageLayout from "@/components/PageLayout";
+import UnderlinedTitle from "@/components/UnderlinedTitle";
 
 const Page: React.FC = () => {
   return <PageLayout>
-    News page
+    <div className="container">
+      <UnderlinedTitle title="Музикальні релізи" />
+    </div>
   </PageLayout>
 }
 

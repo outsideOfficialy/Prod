@@ -7,15 +7,21 @@
   --nav-btns-container-size: 443px;
   --nav-btn-container-side-padding: 15px;
 
-  --header-bg-color: var(--black-half);
+  --header-bg-color: var(--black);
+  --header-position: sticky;
+  &.transparent {
+    --header-bg-color: var(--black-half);
+    --header-position: fixed;
+  }
   --header-top-paddings: 15px;
 
   --header-icons-size: 32px;
 
   padding: var(--header-top-paddings) 0;
-  position: fixed;
+  position: var(--header-position);
   width: 100%;
   z-index: 9;
+  top: 0;
   font-size: var(--nav-btns-font-size);
   background-color: var(--header-bg-color);
   // border-bottom: var(--separator-border);
@@ -115,7 +121,7 @@
     z-index: 99;
     top: 0;
     left: -100%;
-    height: 100dvh;
+    height: calc(100dvh - 2px);
     transition: 0.3s;
     // width: 100%;
     background-color: var(--black);

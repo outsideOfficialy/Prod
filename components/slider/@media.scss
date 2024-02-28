@@ -1,0 +1,43 @@
+@media (max-width: 991px) {
+  // Slide setup
+  .swiper-slide .slide-title-box {
+    max-width: 1390px;
+    width: 100%;
+    padding: 15px;
+    h2 {
+      max-width: 275px;
+      font-size: 48px;
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 3%;
+        transform: translate(0, -50%);
+        width: 60%;
+        height: 80%;
+        background-color: var(--black);
+      }
+    }
+  }
+
+  // Pagination "White-Dots" setup
+
+  .white-dots .swiper-pagination-fraction,
+  .white-dots .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets .swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 25px);
+    gap: 15px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 15px;
+    height: 15px;
+  }
+}

@@ -5,7 +5,7 @@ import PageLayout from "@/components/PageLayout";
 
 const Page: React.FC = () => {
   return <PageLayout>
-    News page
+    Merch page
   </PageLayout>
 }
 
