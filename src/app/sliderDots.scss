@@ -1,5 +1,5 @@
 @mixin styles-for-white-dots {
-  @include flex(flex-start, center);
+  @include flex(start, center);
 
   --container-top-padding: 0;
   --container-side-padding: 15px;

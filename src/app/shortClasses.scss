@@ -11,6 +11,10 @@
   max-width: $max-width;
 }
 
+@mixin direction($direction) {
+  flex-direction: $direction;
+}
+
 @mixin hover-underline() {
   transition: 0.3s;
   position: relative;
@@ -43,4 +47,3 @@
     @content;
   }
 }
-

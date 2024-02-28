@@ -76,15 +76,38 @@ ul {
   padding: var(--container-top-padding) var(--container-side-padding);
 }
 
+@mixin container {
+  --container-top-padding: 0;
+  --container-side-padding: 15px;
+  --container-width: calc(var(--container-side-padding) * 2 + 1390px);
+
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: var(--container-top-padding) var(--container-side-padding);
+}
+
+.flex-container {
+  @include flex(space-between, flex-start);
+  @include container();
+  @include direction(column);
+}
+
 .gap-60 {
-  @include flex(center, start);
-  flex-direction: column;
   gap: 60px;
+}
+
+.gap-30 {
+  gap: 30px;
 }
 
 @media screen and (max-width: 997px) {
   .gap-60 {
     gap: 45px;
+  }
+
+  .gap-30 {
+    gap: 25px;
   }
 }
 
@@ -279,4 +302,25 @@ a {
     --padding: 15px;
     --fong-size: 20px;
   }
+}
+
+.btn-box {
+  @include flex(flex-start, center);
+  @include direction(row);
+  gap: 20px;
+  padding: 10px;
+}
+
+.btn-icons {
+  @include btn();
+  @include flex(center, center);
+  padding: 0;
+  border: 1px solid var(--white-half);
+  width: 50px;
+  height: 50px;
+
+  --hover-bg-color: var(--black);
+  --focus-bg-color: var(--black-half);
+
+  --bg-color: var(--black-half);
 }
