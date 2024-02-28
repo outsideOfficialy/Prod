@@ -21,18 +21,7 @@ export default function Slider() {
   const [slides, setSlides] = useState<Slide[]>([]);
 
   useEffect(() => {
-    const checkScreenWidth = () => {
-      setIsMobile(window.innerWidth <= 991);
-    };
-    checkScreenWidth();
-
-    window.addEventListener("resize", checkScreenWidth);
-
-    return () => window.removeEventListener("resize", checkScreenWidth);
-  }, []);
-
-  useEffect(() => {
-    const fetchSlides = async () => {
+    const fetchData = async () => {
       try {
         const response = await fetch("https://www.backend.outside-official.com/slider/");
         const data: Slide[] = await response.json();
@@ -42,7 +31,16 @@ export default function Slider() {
       }
     };
 
-    fetchSlides();
+    const checkScreenWidth = () => {
+      setIsMobile(window.innerWidth <= 991);
+    };
+
+    fetchData();
+    checkScreenWidth();
+
+    window.addEventListener("resize", checkScreenWidth);
+
+    return () => window.removeEventListener("resize", checkScreenWidth);
   }, []);
 
   return (
