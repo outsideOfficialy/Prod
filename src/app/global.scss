@@ -111,23 +111,33 @@ ul {
 
 @mixin section-title {
   --section-title-font-size: 54px;
+  --underline-height: 3px;
+  --underline-max-width: 272px;
+  --underline-indent: 10px;
 
   font-size: var(--section-title-font-size);
+
+  @include max-w-media(991px) {
+    --section-title-font-size: 28px;
+    --underline-height: 1px;
+    --underline-max-width: 140px;
+    --underline-indent: 10px;
+  }
 }
 
 .underlined-title {
   @include section-title;
   font-family: var(--titles-font);
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: var(--underline-indent);
 
   hr {
     position: absolute;
     left: 0;
-    max-width: 272px;
+    max-width: var(--underline-max-width);
     border: none;
     outline: none;
-    height: 3px;
+    height: var(--underline-height);
     bottom: 0;
     background-color: var(--main-primary-color);
   }
@@ -218,6 +228,12 @@ a {
   &.visible {
     visibility: visible;
     opacity: 1;
+  }
+
+  @include max-w-media(991px) {
+    --width: 52px;
+    --height: 52px;
+    --font-size: 22px;
   }
 }
 

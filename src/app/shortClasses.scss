@@ -38,3 +38,9 @@
   }
 }
 
+@mixin max-w-media($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
