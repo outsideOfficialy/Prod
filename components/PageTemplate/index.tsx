@@ -2,15 +2,23 @@ import React from "react";
 
 interface PageTemplateProps {
   children: React.ReactNode | React.ReactNode[];
+  scrollUpBtn?: boolean;
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
-  children
+  children,
+  scrollUpBtn = true
 }) => {
   const [showLoader, setShowLoader] = React.useState(true);
+  const [showScrollUp, setShowScrollUp] = React.useState(false);
   // window.document.body.style.overflowY = "hidden";
 
   React.useEffect(() => {
+    if (scrollUpBtn) {
+      window.addEventListener("scroll", () => {
+        window.scrollY >= 100 ? setShowScrollUp(true) : setShowScrollUp(false);
+      })
+    }
 
     const loadEndHandler = () => {
       setShowLoader(false);
