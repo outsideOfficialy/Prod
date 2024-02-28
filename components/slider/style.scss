@@ -1,4 +1,5 @@
 @import "@/src/app/shortClasses.scss";
+@import "@/src/app/sliderDots.scss";
 
 // Slider setup
 
@@ -59,50 +60,4 @@
   }
 }
 
-// Pagination "White-Dots" setup
-
-@mixin styles-for-dots {
-  @include flex(flex-start, center);
-
-  --container-top-padding: 0;
-  --container-side-padding: 15px;
-  --container-width: calc(var(--container-side-padding) * 2 + 1390px);
-
-  bottom: var(--swiper-pagination-bottom, 130px);
-  top: var(--swiper-pagination-top, auto);
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 100%;
-  max-width: var(--container-width);
-  padding: var(--container-top-padding) var(--container-side-padding);
-  gap: 25px;
-}
-
-.swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets .swiper-pagination-horizontal {
-  @include styles-for-dots();
-}
-
-.white-dots {
-  .white-dots .swiper-pagination-fraction,
-  .white-dots .swiper-pagination-custom {
-    @include styles-for-dots();
-  }
-
-  .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
-    border: 1px solid var(--white-half);
-    background: transparent;
-    opacity: 1;
-  }
-
-  .swiper-pagination-bullet-active {
-    background-color: var(--white-half);
-    border: 1px solid var(--white-half);
-    width: 25px;
-    height: 25px;
-  }
-}
+@include white-dots();
