@@ -24,7 +24,7 @@ export default function Home() {
   });
 
   return (
-    <PageLayout transparentHeader>
+    <PageLayout hideScrollUpBtn transparentHeader>
       {/* just for some content */}
       <Slider></Slider>
     </PageLayout>

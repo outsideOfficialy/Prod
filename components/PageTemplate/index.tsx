@@ -34,6 +34,15 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
       Loading...
     </div>
     {children}
+    {scrollUpBtn &&
+      <button
+        onClick={(e) => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }}
+        className={`btn-scroll-up material-symbols-outlined ${showScrollUp ? "visible" : ""}`}>arrow_upward</button>}
   </main>;
 }
 

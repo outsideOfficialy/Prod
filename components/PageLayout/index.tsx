@@ -10,13 +10,15 @@ interface PageProps {
   header?: boolean | undefined;
   footer?: boolean | undefined;
   transparentHeader?: boolean;
+  hideScrollUpBtn?: boolean;
 }
 
 const PageLayout: React.FC<PageProps> = ({
   children,
   header,
   footer,
-  transparentHeader
+  transparentHeader,
+  hideScrollUpBtn = false
 }) => {
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -35,7 +37,7 @@ const PageLayout: React.FC<PageProps> = ({
     {/* if you write header in Page props, than it will dissappear */}
     {header === undefined && <Header transparentHeader={transparentHeader} isMobile={isMobile} />}
 
-    <PageTemplate>
+    <PageTemplate scrollUpBtn={!hideScrollUpBtn}>
       {children}
     </PageTemplate>
 
