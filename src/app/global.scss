@@ -52,7 +52,10 @@ body {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 300vh;
+  background: url("../../public/bg.webp") repeat-y 0 0;
+  background-size: 100% auto;
+  padding-top: 50px;
 }
 
 ul {
@@ -111,6 +114,20 @@ ul {
 
 .underlined-title {
   @include section-title;
+  font-family: var(--titles-font);
+  position: relative;
+  padding-bottom: 10px;
+
+  hr {
+    position: absolute;
+    left: 0;
+    max-width: 272px;
+    border: none;
+    outline: none;
+    height: 3px;
+    bottom: 0;
+    background-color: var(--main-primary-color);
+  }
   /* потом накину сюда стилей и переменных */
 }
 
