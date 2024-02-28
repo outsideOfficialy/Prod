@@ -29,7 +29,7 @@
     object-fit: cover;
   }
 
-  .SwiperMainPage__title {
+  .slideTitleBox {
     max-width: 1390px;
     width: 100%;
     position: absolute;
@@ -59,12 +59,16 @@
   }
 }
 
-// Pagination setup
+// Pagination "White-Dots" setup
 
-.swiper-slide h2 .swiper-pagination-fraction,
-.swiper-pagination-custom,
+.whiteDots .swiper-pagination-fraction,
+.whiteDots .swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-pagination-bullets .swiper-pagination-horizontal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   --container-top-padding: 0;
   --container-side-padding: 15px;
   --container-width: calc(var(--container-side-padding) * 2 + 1390px);
@@ -76,9 +80,6 @@
   width: 100%;
   max-width: var(--container-width);
   padding: var(--container-top-padding) var(--container-side-padding);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   gap: 25px;
 }
 
