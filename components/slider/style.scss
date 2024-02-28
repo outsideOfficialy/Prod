@@ -29,7 +29,7 @@
     object-fit: cover;
   }
 
-  .slideTitleBox {
+  .slide-title-box {
     max-width: 1390px;
     width: 100%;
     position: absolute;
@@ -61,8 +61,8 @@
 
 // Pagination "White-Dots" setup
 
-.whiteDots .swiper-pagination-fraction,
-.whiteDots .swiper-pagination-custom,
+.white-dots .swiper-pagination-fraction,
+.white-dots .swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets .swiper-pagination-horizontal {
   @include flex(flex-start, center);

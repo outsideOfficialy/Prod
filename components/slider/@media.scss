@@ -1,6 +1,6 @@
 @media (max-width: 991px) {
   // Slide setup
-  .swiper-slide .slideTitleBox {
+  .swiper-slide .slide-title-box {
     max-width: 1390px;
     width: 100%;
     padding: 15px;
@@ -23,8 +23,8 @@
 
   // Pagination "White-Dots" setup
 
-  .whiteDots .swiper-pagination-fraction,
-  .whiteDots .swiper-pagination-custom,
+  .white-dots .swiper-pagination-fraction,
+  .white-dots .swiper-pagination-custom,
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets .swiper-pagination-horizontal {
     bottom: var(--swiper-pagination-bottom, 25px);

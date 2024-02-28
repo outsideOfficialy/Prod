@@ -56,7 +56,7 @@ export default function Slider() {
           clickable: true
         }}
         modules={[Autoplay, Pagination]}
-        className="swiperMainPage whiteDots"
+        className="swiper-main-page white-dots"
       >
         {slides.map((slide) => {
           const backEndURL = "https://www.backend.outside-official.com/";
@@ -64,9 +64,9 @@ export default function Slider() {
             ? backEndURL + JSON.parse(slide.preview_picture_mobile)[0]
             : backEndURL + JSON.parse(slide.preview_picture_desktop)[0];
           return (
-            <SwiperSlide key={slide.id} className="slideMainPage">
+            <SwiperSlide key={slide.id} className="slide-main-page">
               <a href={slide.link}>
-                <div className="slideTitleBox">
+                <div className="slide-title-box">
                   <h2>{slide.title}</h2>
                 </div>
                 <img src={linkToImg} alt={slide.title} />
