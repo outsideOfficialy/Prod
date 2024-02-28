@@ -61,10 +61,7 @@
 
 // Pagination "White-Dots" setup
 
-.white-dots .swiper-pagination-fraction,
-.white-dots .swiper-pagination-custom,
-.swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets .swiper-pagination-horizontal {
+@mixin styles-for-dots {
   @include flex(flex-start, center);
 
   --container-top-padding: 0;
@@ -81,19 +78,31 @@
   gap: 25px;
 }
 
-.swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
-  border: 1px solid var(--white-half);
-  background: transparent;
-  opacity: 1;
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets .swiper-pagination-horizontal {
+  @include styles-for-dots();
 }
 
-.swiper-pagination-bullet-active {
-  background-color: var(--white-half);
-  border: 1px solid var(--white-half);
-  width: 25px;
-  height: 25px;
+.white-dots {
+  .white-dots .swiper-pagination-fraction,
+  .white-dots .swiper-pagination-custom {
+    @include styles-for-dots();
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+    border: 1px solid var(--white-half);
+    background: transparent;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--white-half);
+    border: 1px solid var(--white-half);
+    width: 25px;
+    height: 25px;
+  }
 }
