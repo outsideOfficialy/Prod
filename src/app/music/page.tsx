@@ -45,6 +45,7 @@ const Page: React.FC = () => {
           <div className="music-releases__container">
             {releasesData.map((el, idx) => {
 
+              //! можно вынести все эти обработчики в саму компоненту ContentWrapper
               return <ContentWrapper
                 onMouseDown={(e) => {
                   dragging.current = true;
@@ -56,7 +57,6 @@ const Page: React.FC = () => {
                     const deltaX = moveCoorX.current - currentX;
 
                     if (deltaX >= 300) {
-                      // console.log('Пользователь провел мышью влево на 100 пикселей!');
                       setShowId(idx);
                       dragging.current = false;
                     }
