@@ -138,11 +138,17 @@ ul {
 
 @mixin section-title {
   --section-title-font-size: 54px;
+  --section-font-weight: 400;
+  --section-font-family: var(--titles-font);
   --underline-height: 3px;
   --underline-max-width: 272px;
   --underline-indent: 10px;
 
+  font-weight: var(--section-font-weight);
   font-size: var(--section-title-font-size);
+  font-family: var(--section-font-family);
+  position: relative;
+  padding-bottom: var(--underline-indent);
 
   hr {
     position: absolute;
@@ -166,8 +172,15 @@ ul {
 .underlined-title {
   @include section-title;
   font-family: var(--titles-font);
-  position: relative;
-  padding-bottom: var(--underline-indent);
+}
+
+.underlined-subtitle {
+  @include section-title;
+  --underline-indent: 20px;
+  --underline-max-width: none;
+  --section-title-font-size: 36px;
+  --section-font-weight: 600;
+  --section-font-family: var(--page-font);
 }
 
 .sub-title {

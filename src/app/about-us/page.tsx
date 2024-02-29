@@ -46,7 +46,7 @@ const Page: React.FC = () => {
           </h3>
         </div>
         <div className="flex-container gap-30">
-          <UnderlinedTitle title="Наші соц. мережи" />
+          <UnderlinedTitle subtitle title="Наші соц. мережи" />
           <div className="btn-box">
             <button className="btn-icons">
               <Image src={icons.spotify} alt="Spotify" />
