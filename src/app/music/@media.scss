@@ -2,9 +2,19 @@
 
 @media screen and (max-width: 991px) {
   .music-release {
-    @include f-direction(column-reverse);
     --music-padding: 15px;
+    --songs-list-font-size: 16px;
     gap: 15px;
+    justify-content: flex-end;
+
+    &__img-container {
+      @include width(100%, none);
+      @include flex(center);
+
+      img {
+        max-width: 600px;
+      }
+    }
 
     .release-info {
       gap: 30px;

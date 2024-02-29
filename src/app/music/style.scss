@@ -10,6 +10,7 @@
   padding: var(--music-padding);
   flex-wrap: wrap;
   @include flex(space-between);
+  @include f-direction(row-reverse);
   
   .release-info {
     @include flex(start);

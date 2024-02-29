@@ -54,6 +54,11 @@ const Page: React.FC = () => {
               setShowId={setShowId}
             >
               {showId == idx ? <p className="hidden-id">{el.id}</p> : null}
+
+              <div className="music-release__img-container">
+                <img src={SERVER_ROOT + "/" + JSON.parse(el.preview_picture)[0]} alt="Release Preview" />
+              </div>
+
               <div className="release-info">
                 <div className="flex-container gap-30">
                   <UnderlinedTitle subtitle title={`Назва релізу (${el.music_type === "single" ? "Сінгл" : "Альбом"})`} />
@@ -69,10 +74,6 @@ const Page: React.FC = () => {
                   <UnderlinedTitle subtitle title="Слухати" />
                   <IconsLinkedList iconsList={JSON.parse(el.social_media_links)} />
                 </div>
-              </div>
-
-              <div className="music-release__img-container">
-                <img src={SERVER_ROOT + "/" + JSON.parse(el.preview_picture)[0]} alt="Release Preview" />
               </div>
             </ContentWrapper>
           )
