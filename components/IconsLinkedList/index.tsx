@@ -32,7 +32,7 @@ const IconsLinkedList: React.FC<IconsLinkedListProps> = ({
       if (!getIcon) return "Error in icon";
 
 
-      return <a href={el.link} className="btn-icons">
+      return <a target="_blank" href={el.link} className="btn-icons">
         <Image src={getIcon} alt={el.platform} />
         <span className="">Слухати зараз</span>
         <span className="arrow-right material-symbols-outlined">arrow_right_alt</span>
