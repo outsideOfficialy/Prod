@@ -1,27 +1,31 @@
 import "./style.scss";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 interface ContentWrapperProps {
   className?: string;
   children: React.ReactNode | React.ReactNode[];
-  onMouseDown?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseUp?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  setShowId: (e: number) => void;
+  setShowId: (e: number | null) => void;
   id: number;
+  animationDelay?: number;
 }
 
 const ContentWrapper: React.FC<ContentWrapperProps> = ({
-  className, children, onMouseDown, onMouseMove, onMouseUp, setShowId, id
+  className, children, setShowId, id, animationDelay = 0.5
 }) => {
   const dragging = React.useRef(false);
   const moveCoorX = React.useRef(0);
 
-  return <div onMouseDown={(e) => {
-    dragging.current = true;
-    moveCoorX.current = e.clientX;
-  }}
+  return <motion.div
+    initial={{ opacity: 0, translateY: -50 }}
+    whileInView={{ opacity: 1, translateY: 0 }}
+    transition={{ duration: .3, delay: animationDelay }}
+    viewport={{ once: true }}
+    onMouseDown={(e) => {
+      dragging.current = true;
+      moveCoorX.current = e.clientX;
+    }}
     onMouseMove={(e) => {
       if (dragging.current == true) {
         const currentX = e.clientX;
@@ -30,12 +34,13 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
         if (deltaX >= 300) {
           setShowId(id);
           dragging.current = false;
+          setTimeout(() => setShowId(null), 3000);
         }
       }
     }}
     onMouseUp={(e) => dragging.current = false} className={`content-wrapper ${className ? className : ""}`}>
     {children}
-  </div>;
+  </motion.div>;
 }
 
 export default ContentWrapper;

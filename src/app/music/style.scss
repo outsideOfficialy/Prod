@@ -1,12 +1,45 @@
-.music-releases {
-  .underlined-title {
-    margin-bottom: 60px;
+@import "@/src/app/shortClasses.scss";
+
+.music-release {
+  --music-padding: 25px 50px;
+  --music-img-m-width: 400px;
+  --songs-list-font-size: 20px;
+  --songs-list-padding-left: 1.2em;
+  // --section-padding-bottom: 50px;
+  
+  position: relative;
+  padding: var(--music-padding);
+  flex-wrap: wrap;
+  @include flex(space-between);
+  
+  .release-info {
+    @include flex(start);
+    @include f-direction(column);
+    gap: 40px;
+
+    &__songs-list {
+      padding-left: var(--songs-list-padding-left);
+      @include flex(start);
+      @include f-direction(column);
+      font-size: var(--songs-list-font-size);
+      gap: 20px;
+    }
   }
 
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    padding-bottom: 50px;
+  .btn-box {
+    padding: 0;
+  }
+
+  .flex-container {
+    padding: 0;
+  }
+
+  &__img-container {
+    max-width: var(--music-img-m-width);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }

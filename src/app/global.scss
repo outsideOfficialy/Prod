@@ -51,8 +51,8 @@ main {
   background: url("../../public/bg.webp") repeat-y 0 0;
   background-size: 100% auto;
 
-  & > .container,
-  & > .flex-container {
+  > .container,
+  > .flex-container {
     padding-top: 50px;
   }
 }
@@ -118,6 +118,16 @@ ul {
   border: none;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.hidden-id {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translate(-50%, 0);
+  background: var(--black);
+  font-size: 20px;
+  padding: 5px;
 }
 
 .page-loader {
@@ -188,11 +198,14 @@ ul {
 
 .underlined-subtitle {
   @include section-title;
-  --underline-indent: 20px;
   --underline-max-width: none;
   --section-title-font-size: 36px;
   --section-font-weight: 600;
   --section-font-family: var(--page-font);
+
+  @include max-w-media(991px) {
+    --underline-indent: 15px;
+  }
 }
 
 .sub-title {

@@ -4,13 +4,14 @@ import React from "react";
 import PageLayout from "@/components/PageLayout";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import ContentWrapper from "@/components/ContentWrapper";
+import IconsLinkedList from "@/components/IconsLinkedList";
 
 import "./style.scss";
 import { SERVER_ROOT } from "@/utils/variables";
 
-interface musicRelease {
+interface musicReleaseObj {
   id: string;
-  music_type: string;
+  music_type: "album" | "single";
   preview_picture: string;
   release_name: string;
   release_songs: string;
@@ -18,8 +19,12 @@ interface musicRelease {
   social_media_links: string;
 }
 
+interface ReleaseSongObj {
+
+}
+
 const Page: React.FC = () => {
-  const [releasesData, setRealeasesData] = React.useState<null | musicRelease[]>(null);
+  const [releasesData, setRealeasesData] = React.useState<null | musicReleaseObj[]>(null);
   const [showId, setShowId] = React.useState<number | null>(null);
 
   React.useEffect(() => {
@@ -35,35 +40,44 @@ const Page: React.FC = () => {
   }, []);
 
   return <PageLayout>
-    <section className="music-releases">
-      <div className="container">
-        <UnderlinedTitle title="Музикальні релізи" />
+    <div className="flex-container gap-60">
+      <UnderlinedTitle title="Музикальні релізи" />
 
-        {releasesData &&
-          <div className="flex-container gap-60">
-            {releasesData.map((el, idx) => {
+      {releasesData && <>
+        {releasesData.map((el, idx) => {
+          return (
+            <ContentWrapper
+              key={idx}
+              className="music-release"
+              id={idx}
+              setShowId={setShowId}
+            >
+              {showId == idx ? <p className="hidden-id">{el.id}</p> : null}
+              <div className="release-info">
+                <div className="flex-container gap-30">
+                  <UnderlinedTitle subtitle title={`Назва релізу (${el.music_type === "single" ? "Сінгл" : "Альбом"})`} />
+                  <ol className="release-info__songs-list">
+                    {JSON.parse(el.release_songs).map((el: string, idx: number) => {
+                      return <li key={idx + el}>{el}</li>;
+                    })}
+                  </ol>
 
-              //! можно вынести все эти обработчики в саму компоненту ContentWrapper
-              return (
-                <ContentWrapper
-                  key={idx}
-                  className="release"
-                  id={idx}
-                  setShowId={setShowId}
-                >
+                </div>
 
-                  {showId == idx ? el.id : null}
+                <div className="flex-container gap-30">
+                  <UnderlinedTitle subtitle title="Слухати" />
+                  <IconsLinkedList />
+                </div>
+              </div>
 
-                  <div className="release-info"></div>
-                  <div className="release-img">
-                    {/* <img src={SERVER_ROOT + "/" + JSON.parse(el.preview_picture)[0]} alt="Release Preview" /> */}
-                  </div>
-                </ContentWrapper>)
-            })}
-          </div>
-        }
-      </div>
-    </section>
+              <div className="music-release__img-container">
+                <img src={SERVER_ROOT + "/" + JSON.parse(el.preview_picture)[0]} alt="Release Preview" />
+              </div>
+            </ContentWrapper>
+          )
+        })}
+      </>}
+    </div>
   </PageLayout>
 }
 
