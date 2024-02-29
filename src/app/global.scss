@@ -50,6 +50,7 @@ main {
   min-height: 100dvh;
   background: url("../../public/bg.webp") repeat-y 0 0;
   background-size: 100% auto;
+  padding-bottom: 50px;
 
   > .container,
   > .flex-container {
@@ -187,7 +188,7 @@ ul {
 
 @mixin secion-subtitle {
   @include section-title();
-  
+
   --underline-max-width: none;
 }
 
@@ -339,18 +340,49 @@ a {
   @include f-direction(row);
   gap: 20px;
   padding: 10px;
+  width: 100%;
 }
 
 .btn-icons {
   @include btn();
-  @include flex(center, center);
-  padding: 0;
-  border: 1px solid var(--white-half);
-  width: 50px;
-  height: 50px;
+  @include flex(space-between, center);
 
   --hover-bg-color: var(--black);
   --focus-bg-color: var(--black-half);
-
+  --padding: 9px;
+  --border-color: var(--white-half);
+  --border: 1px solid var(--border-color);
   --bg-color: var(--black-half);
+  --max-width: 50px;
+  --text-color: var(--white);
+  --font-size: 20px;
+
+  @include width(100%, var(--max-width));
+  height: 50px;
+  position: relative;
+  transition: 0.3s;
+  text-wrap: nowrap;
+
+  .arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%  );
+  }
+
+  span {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:hover {
+    --max-width: 258px;
+    --border-color: var(--primary-color);
+    padding-right: 39px;
+
+    span {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 }
