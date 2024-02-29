@@ -21,8 +21,6 @@ interface musicRelease {
 const Page: React.FC = () => {
   const [releasesData, setRealeasesData] = React.useState<null | musicRelease[]>(null);
   const [showId, setShowId] = React.useState<number | null>(null);
-  const dragging = React.useRef(false);
-  const moveCoorX = React.useRef(0);
 
   React.useEffect(() => {
     fetch(`${SERVER_ROOT}/music/`)
@@ -42,36 +40,25 @@ const Page: React.FC = () => {
         <UnderlinedTitle title="Музикальні релізи" />
 
         {releasesData &&
-          <div className="music-releases__container">
+          <div className="flex-container gap-60">
             {releasesData.map((el, idx) => {
 
               //! можно вынести все эти обработчики в саму компоненту ContentWrapper
-              return <ContentWrapper
-                onMouseDown={(e) => {
-                  dragging.current = true;
-                  moveCoorX.current = e.clientX;
-                }}
-                onMouseMove={(e) => {
-                  if (dragging.current == true) {
-                    const currentX = e.clientX;
-                    const deltaX = moveCoorX.current - currentX;
+              return (
+                <ContentWrapper
+                  key={idx}
+                  className="release"
+                  id={idx}
+                  setShowId={setShowId}
+                >
 
-                    if (deltaX >= 300) {
-                      setShowId(idx);
-                      dragging.current = false;
-                    }
-                  }
-                }}
-                onMouseUp={(e) => dragging.current = false}
-                key={idx} className="release">
-                {showId == idx ? el.id : null}
-                <div className="release-info">
+                  {showId == idx ? el.id : null}
 
-                </div>
-                <div className="release-img">
-                  {/* <img src={SERVER_ROOT + "/" + JSON.parse(el.preview_picture)[0]} alt="Release Preview" /> */}
-                </div>
-              </ContentWrapper>
+                  <div className="release-info"></div>
+                  <div className="release-img">
+                    {/* <img src={SERVER_ROOT + "/" + JSON.parse(el.preview_picture)[0]} alt="Release Preview" /> */}
+                  </div>
+                </ContentWrapper>)
             })}
           </div>
         }

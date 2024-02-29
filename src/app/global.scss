@@ -74,6 +74,10 @@ ul {
 
 .container {
   @include container();
+
+  > .flex-container {
+    padding: 0;
+  }
 }
 
 .flex-container {
