@@ -37,12 +37,19 @@ const Page: React.FC = () => {
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Про нас" />
           <h3 className="sub-title">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            {/* "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
             dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum
+            mollit anim id est laborum */}
+            <p>
+              «outside» – рок-гурт, заснований у Харкові, Україна. Група була сформована Даніелем (вокал, бас), Дейзоном (лід-гітара), і Майком (ритм-гітара) в 2022. З того часу до них приєднався Ендрю (барабани).
+            </p>
+            <p>
+              Спочатку гурт був лише соло-проектом Даніеля, який називався «44 minutes». Але після  приєднання Дейзона та Майка було ухвалено рішення розпочати музичний шлях з нуля. Пізніше  Ендрю прийшов у цей колектив, и усі разом зараз працюють в гурті «outside». 
+            </p>
+
           </h3>
         </div>
         <div className="flex-container gap-30">
