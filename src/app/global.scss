@@ -284,11 +284,15 @@ a {
   --width: 60px;
   --height: 60px;
 
-  --hover-bg-color: var(--black);
-  --hover-text-color: var(--white);
+  --hover-bg-color: var(--black-half);
+  --hover-text-color: var(--primary-color);
   --focus-bg-color: var(--black-half);
 
   --bg-color: var(--black-half);
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
 
   position: fixed;
   z-index: 9;
@@ -354,11 +358,11 @@ a {
   --border: 1px solid var(--border-color);
   --bg-color: var(--black-half);
   --max-width: 50px;
+  --height: 50px;
   --text-color: var(--white);
   --font-size: 20px;
 
   @include width(100%, var(--max-width));
-  height: 50px;
   position: relative;
   transition: 0.3s;
   text-wrap: nowrap;
@@ -367,7 +371,7 @@ a {
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%  );
+    transform: translateY(-50%);
   }
 
   span {
