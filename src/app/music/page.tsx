@@ -20,10 +20,6 @@ interface musicReleaseObj {
   social_media_links: string;
 }
 
-interface ReleaseSongObj {
-
-}
-
 const Page: React.FC = () => {
   const [releasesData, setRealeasesData] = React.useState<null | musicReleaseObj[]>(null);
   const [showId, setShowId] = React.useState<number | null>(null);
@@ -46,6 +42,15 @@ const Page: React.FC = () => {
 
       {releasesData && <>
         {releasesData.map((el, idx) => {
+          const formatedDate = el.send_later.replaceAll("/", "-");
+          const targetDate = new Date(formatedDate);
+          const currentDate = new Date();
+
+          targetDate.setHours(0, 0, 0, 0);
+          currentDate.setHours(0, 0, 0, 0);
+
+          if (currentDate.getTime() > targetDate.getTime()) return <></>;
+
           return (
             <ContentWrapper
               key={idx}
@@ -61,7 +66,7 @@ const Page: React.FC = () => {
 
               <div className="release-info">
                 <div className="flex-container gap-30">
-                  <UnderlinedTitle subtitle title={`Назва релізу (${el.music_type === "single" ? "Сінгл" : "Альбом"})`} />
+                  <UnderlinedTitle subtitle title={`${el.release_name} (${el.music_type === "single" ? "Сінгл" : "Альбом"})`} />
                   <ol className="release-info__songs-list">
                     {JSON.parse(el.release_songs).map((el: string, idx: number) => {
                       return <li key={idx + el}>{el}</li>;

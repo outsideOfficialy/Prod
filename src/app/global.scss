@@ -50,7 +50,6 @@ main {
   min-height: 100dvh;
   background: url("../../public/bg.webp") repeat-y 0 0;
   background-size: 100% auto;
-  padding-bottom: 50px;
 
   > .container,
   > .flex-container {
@@ -396,6 +395,8 @@ a {
     --padding: 7px;
     --max-width: 35px;
     --height: 35px;
+    --font-size: 16px;
+
 
     img {
       width: 20px;
