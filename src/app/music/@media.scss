@@ -1,0 +1,13 @@
+@import "@/src/app/shortClasses.scss";
+
+@media screen and (max-width: 991px) {
+  .music-release {
+    @include f-direction(column-reverse);
+    --music-padding: 15px;
+    gap: 15px;
+
+    .release-info {
+      gap: 30px;
+    }
+  }
+}

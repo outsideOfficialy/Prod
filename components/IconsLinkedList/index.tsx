@@ -11,7 +11,6 @@ interface IconsLinkedListProps {
 }
 
 function getIconItem(platform: string) {
-  console.log(platform);
   switch (platform.toLowerCase().trim()) {
     case "spotify": return icons.spotify;
     case "apple_music": return icons.iTunes;
@@ -30,7 +29,6 @@ const IconsLinkedList: React.FC<IconsLinkedListProps> = ({
       if (el.link.trim() === "") return;
       const getIcon = getIconItem(el.platform)
       if (!getIcon) return "Error in icon";
-
 
       return <a target="_blank" href={el.link} className="btn-icons">
         <Image src={getIcon} alt={el.platform} />

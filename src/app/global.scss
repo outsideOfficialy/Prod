@@ -186,7 +186,7 @@ ul {
   }
 }
 
-@mixin secion-subtitle {
+@mixin section-subtitle {
   @include section-title();
 
   --underline-max-width: none;
@@ -206,6 +206,8 @@ ul {
 
   @include max-w-media(991px) {
     --underline-indent: 15px;
+    --section-title-font-size: 26px;
+    --underline-max-width: none;
   }
 }
 
@@ -387,6 +389,16 @@ a {
     span {
       visibility: visible;
       opacity: 1;
+    }
+  }
+
+  @include max-w-media(991px) {
+    --padding: 7px;
+    --max-width: 35px;
+    --height: 35px;
+
+    img {
+      width: 20px;
     }
   }
 }

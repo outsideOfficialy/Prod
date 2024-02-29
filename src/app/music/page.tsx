@@ -7,6 +7,7 @@ import ContentWrapper from "@/components/ContentWrapper";
 import IconsLinkedList from "@/components/IconsLinkedList";
 
 import "./style.scss";
+import "./@media.scss";
 import { SERVER_ROOT } from "@/utils/variables";
 
 interface musicReleaseObj {
