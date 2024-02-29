@@ -1,11 +1,11 @@
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
   // Slide setup
   .swiper-slide .slide-title-box {
     max-width: 1390px;
     width: 100%;
     padding: 15px;
     h2 {
-      max-width: 275px;
+      max-width: 280px;
       font-size: 48px;
       &::after {
         content: "";

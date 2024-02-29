@@ -27,21 +27,15 @@
   --titles-font: "Dela Gothic One";
 }
 
-/* customize the scrollbar Width & Height */
 ::-webkit-scrollbar {
-  /* vertical scrollbar */
   width: 2px;
-
-  /* horizontal scrollbar */
   height: 1px;
 }
 
-/* customize the scrollbar Track */
 ::-webkit-scrollbar-track {
   background: var(--black);
 }
 
-/* customize the scrollbar Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--white-half);
 }
@@ -57,7 +51,8 @@ main {
   background: url("../../public/bg.webp") repeat-y 0 0;
   background-size: 100% auto;
 
-  .container {
+  & > .container,
+  & > .flex-container {
     padding-top: 50px;
   }
 }
@@ -66,7 +61,7 @@ ul {
   list-style: none;
 }
 
-.container {
+@mixin container {
   --container-top-padding: 0;
   --container-side-padding: 15px;
   --container-width: calc(var(--container-side-padding) * 2 + 1390px);
@@ -75,6 +70,38 @@ ul {
   margin: 0 auto;
   max-width: var(--container-width);
   padding: var(--container-top-padding) var(--container-side-padding);
+}
+
+.container {
+  @include container();
+}
+
+.flex-container {
+  @include flex(space-between, flex-start);
+  @include container();
+  @include f-direction(column);
+}
+
+.gap {
+  &-60 {
+    gap: 60px;
+  }
+
+  &-30 {
+    gap: 30px;
+  }
+}
+
+@include max-w-media(991px) {
+  .gap {
+    &-60 {
+      gap: 45px;
+    }
+
+    &-30 {
+      gap: 25px;
+    }
+  }
 }
 
 .separate-line {
@@ -112,11 +139,17 @@ ul {
 
 @mixin section-title {
   --section-title-font-size: 54px;
+  --section-font-weight: 400;
+  --section-font-family: var(--titles-font);
   --underline-height: 3px;
   --underline-max-width: 272px;
   --underline-indent: 10px;
 
+  font-weight: var(--section-font-weight);
   font-size: var(--section-title-font-size);
+  font-family: var(--section-font-family);
+  position: relative;
+  padding-bottom: var(--underline-indent);
 
   hr {
     position: absolute;
@@ -147,8 +180,23 @@ ul {
 .underlined-title {
   @include section-title;
   font-family: var(--titles-font);
-  position: relative;
-  padding-bottom: var(--underline-indent);
+}
+
+.underlined-subtitle {
+  @include section-title;
+  --underline-indent: 20px;
+  --underline-max-width: none;
+  --section-title-font-size: 36px;
+  --section-font-weight: 600;
+  --section-font-family: var(--page-font);
+}
+
+.sub-title {
+  font-family: var(--page-font);
+  color: var(--white-half);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.5px;
 }
 
 button {
@@ -260,11 +308,32 @@ a {
   --bg-color: transparent;
 }
 
-@media screen and (max-width: 997px) {
+@include max-w-media(991px) {
   /* допустим вот адаптация под мобилку */
   .btn-main-primary {
     --width: none;
     --padding: 15px;
     --fong-size: 20px;
   }
+}
+
+.btn-box {
+  @include flex(flex-start, center);
+  @include f-direction(row);
+  gap: 20px;
+  padding: 10px;
+}
+
+.btn-icons {
+  @include btn();
+  @include flex(center, center);
+  padding: 0;
+  border: 1px solid var(--white-half);
+  width: 50px;
+  height: 50px;
+
+  --hover-bg-color: var(--black);
+  --focus-bg-color: var(--black-half);
+
+  --bg-color: var(--black-half);
 }
