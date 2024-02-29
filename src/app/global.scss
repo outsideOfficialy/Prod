@@ -26,21 +26,15 @@
   --titles-font: "Dela Gothic One";
 }
 
-/* customize the scrollbar Width & Height */
 ::-webkit-scrollbar {
-  /* vertical scrollbar */
   width: 2px;
-
-  /* horizontal scrollbar */
   height: 1px;
 }
 
-/* customize the scrollbar Track */
 ::-webkit-scrollbar-track {
   background: var(--black);
 }
 
-/* customize the scrollbar Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--white-half);
 }
@@ -56,24 +50,14 @@ main {
   background: url("../../public/bg.webp") repeat-y 0 0;
   background-size: 100% auto;
 
-  .container {
+  & > .container,
+  & > .flex-container {
     padding-top: 50px;
   }
 }
 
 ul {
   list-style: none;
-}
-
-.container {
-  --container-top-padding: 0;
-  --container-side-padding: 15px;
-  --container-width: calc(var(--container-side-padding) * 2 + 1390px);
-
-  width: 100%;
-  margin: 0 auto;
-  max-width: var(--container-width);
-  padding: var(--container-top-padding) var(--container-side-padding);
 }
 
 @mixin container {
@@ -87,10 +71,14 @@ ul {
   padding: var(--container-top-padding) var(--container-side-padding);
 }
 
+.container {
+  @include container();
+}
+
 .flex-container {
   @include flex(space-between, flex-start);
   @include container();
-  @include direction(column);
+  @include f-direction(column);
 }
 
 .gap-60 {
@@ -101,7 +89,7 @@ ul {
   gap: 30px;
 }
 
-@media screen and (max-width: 997px) {
+@media screen and (max-width: 991px) {
   .gap-60 {
     gap: 45px;
   }
@@ -306,7 +294,7 @@ a {
 
 .btn-box {
   @include flex(flex-start, center);
-  @include direction(row);
+  @include f-direction(row);
   gap: 20px;
   padding: 10px;
 }

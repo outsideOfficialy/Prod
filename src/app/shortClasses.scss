@@ -11,7 +11,7 @@
   max-width: $max-width;
 }
 
-@mixin direction($direction) {
+@mixin f-direction($direction) {
   flex-direction: $direction;
 }
 
