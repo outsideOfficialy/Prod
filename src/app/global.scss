@@ -216,6 +216,9 @@ ul {
   font-weight: 400;
   font-size: 24px;
   letter-spacing: 0.5px;
+  p {
+    padding-top: 15px;
+  }
 }
 
 button {
@@ -362,8 +365,9 @@ a {
   --height: 50px;
   --text-color: var(--white);
   --font-size: 20px;
+  gap: 15px;
 
-  @include width(100%, var(--max-width));
+  @include width(fit-content, var(--max-width));
   position: relative;
   transition: 0.3s;
   text-wrap: nowrap;
@@ -396,7 +400,6 @@ a {
     --max-width: 35px;
     --height: 35px;
     --font-size: 16px;
-
 
     img {
       width: 20px;

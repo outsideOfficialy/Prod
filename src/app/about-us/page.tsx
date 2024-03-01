@@ -4,15 +4,17 @@ import React, { useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import Image from "next/image";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
+import IconsLinkedList from "@/components/IconsLinkedList";
 
 // CSS
 import "@/src/app/global.scss";
-
-// ICONS
-import icons from "@/src/icons/utils";
+import "./style.scss";
 
 // Slider
 import ClassicSlider from "@/components/ClassicSlider";
+
+// Server_root
+import { SERVER_ROOT } from "@/utils/variables";
 
 const Page: React.FC = () => {
   // Slider-data
@@ -31,50 +33,46 @@ const Page: React.FC = () => {
     }
   ]);
 
+  // Список иконок для передачи в компонент IconsLinkedList
+  const iconsList = [
+    { platform: "spotify", link: "https://spotify.com", buttonText: "Перейти" },
+    {
+      platform: "apple_music",
+      link: "https://apple.com/music",
+      buttonText: "Перейти"
+    },
+    { platform: "soundcloud", link: "https://soundcloud.com", buttonText: "Перейти" },
+    {
+      platform: "youtube_music",
+      link: "https://music.youtube.com",
+      buttonText: "Перейти"
+    }
+  ];
+
   return (
     <PageLayout>
       <div className="flex-container gap-60">
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Про нас" />
           <h3 className="sub-title">
-            {/* "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum */}
             <p>
-              «outside» – рок-гурт, заснований у Харкові, Україна. Група була сформована Даніелем (вокал, бас), Дейзоном (лід-гітара), і Майком (ритм-гітара) в 2022. З того часу до них приєднався Ендрю (барабани).
+              «Outside» – рок-гурт, заснований у Харкові, Україна. Група була сформована Даніелем
+              (вокал, бас), Дейзоном (лід-гітара), і Майком (ритм-гітара) в 2022. З того часу до них
+              приєднався Ендрю (барабани).
             </p>
             <p>
-              Спочатку гурт був лише соло-проектом Даніеля, який називався «44 minutes». Але після  приєднання Дейзона та Майка було ухвалено рішення розпочати музичний шлях з нуля. Пізніше  Ендрю прийшов у цей колектив, и усі разом зараз працюють в гурті «outside». 
+              Спочатку гурт був лише соло-проектом Даніеля, який називався «44 minutes». Але після
+              приєднання Дейзона та Майка було ухвалено рішення розпочати музичний шлях з нуля.
+              Пізніше Ендрю прийшов у цей колектив, и усі разом зараз працюють в гурті «outside».
             </p>
-
           </h3>
         </div>
         <div className="flex-container gap-30">
           <UnderlinedTitle subtitle title="Наші соц. мережи" />
-          <div className="btn-box">
-            <button className="btn-icons">
-              <Image src={icons.spotify} alt="Spotify" />
-            </button>
-            <button className="btn-icons">
-              <Image src={icons.iTunes} alt="Spotify" />
-            </button>
-            <button className="btn-icons">
-              <Image src={icons.soundCloud} alt="Spotify" />
-            </button>
-            <button className="btn-icons">
-              <Image src={icons.instagram} alt="Spotify" />
-            </button>
-          </div>
-          {/* to do */}
-          {/* active btn with text inside btn */}
+          <IconsLinkedList iconsList={iconsList} />
         </div>
 
         <ClassicSlider slides={slides} />
-        {/* here should be slider ++ */}
-        {/* finish slider */}
 
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Учасники групи" />
