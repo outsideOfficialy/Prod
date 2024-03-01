@@ -26,7 +26,8 @@
 
   @include width(fit-content, var(--max-width));
   position: relative;
-  transition: 0.3s;
+  overflow: hidden;
+  transition: 0.5s;
   text-wrap: nowrap;
 
   .arrow-right {
