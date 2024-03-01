@@ -2,13 +2,14 @@ import React from "react";
 import Image from "next/image";
 
 import icons from "@/src/icons/utils";
+import "./style.scss";
 
 interface IconsLinkedListProps {
   iconsList: {
     platform: string;
     link: string;
-    buttonText: string;
   }[];
+  buttonText: string;
 }
 
 function getIconItem(platform: string) {
@@ -26,7 +27,7 @@ function getIconItem(platform: string) {
   }
 }
 
-const IconsLinkedList: React.FC<IconsLinkedListProps> = ({ iconsList }) => {
+const IconsLinkedList: React.FC<IconsLinkedListProps> = ({ iconsList, buttonText }) => {
   return (
     <div className="btn-box">
       {iconsList.map((el, idx) => {
@@ -37,7 +38,7 @@ const IconsLinkedList: React.FC<IconsLinkedListProps> = ({ iconsList }) => {
         return (
           <a target="_blank" href={el.link} className="btn-icons" key={idx}>
             <Image src={getIcon} alt={el.platform} />
-            <span className="">{el.buttonText}</span> {/* Отображаем переданный текст */}
+            <span className="">{buttonText}</span>
             <span className="arrow-right material-symbols-outlined">arrow_right_alt</span>
           </a>
         );

@@ -35,17 +35,15 @@ const Page: React.FC = () => {
 
   // Список иконок для передачи в компонент IconsLinkedList
   const iconsList = [
-    { platform: "spotify", link: "https://spotify.com", buttonText: "Перейти" },
+    { platform: "spotify", link: "https://spotify.com" },
     {
       platform: "apple_music",
-      link: "https://apple.com/music",
-      buttonText: "Перейти"
+      link: "https://apple.com/music"
     },
-    { platform: "soundcloud", link: "https://soundcloud.com", buttonText: "Перейти" },
+    { platform: "soundcloud", link: "https://soundcloud.com" },
     {
       platform: "youtube_music",
-      link: "https://music.youtube.com",
-      buttonText: "Перейти"
+      link: "https://music.youtube.com"
     }
   ];
 
@@ -69,7 +67,7 @@ const Page: React.FC = () => {
         </div>
         <div className="flex-container gap-30">
           <UnderlinedTitle subtitle title="Наші соц. мережи" />
-          <IconsLinkedList iconsList={iconsList} />
+          <IconsLinkedList buttonText="Перейти" iconsList={iconsList} />
         </div>
 
         <ClassicSlider slides={slides} />

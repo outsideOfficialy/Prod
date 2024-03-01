@@ -1,0 +1,65 @@
+@import "@/src/app/shortClasses.scss";
+
+.btn-box {
+  @include flex(flex-start, center);
+  @include f-direction(row);
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn-icons {
+  @include btn();
+  @include flex(space-between, center);
+
+  --hover-bg-color: var(--black);
+  --focus-bg-color: var(--black-half);
+  --padding: 9px;
+  --border-color: var(--white-half);
+  --border: 1px solid var(--border-color);
+  --bg-color: var(--black-half);
+  --max-width: 50px;
+  --height: 50px;
+  --text-color: var(--white);
+  --font-size: 20px;
+  gap: 15px;
+
+  @include width(fit-content, var(--max-width));
+  position: relative;
+  transition: 0.3s;
+  text-wrap: nowrap;
+
+  .arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+  span {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:hover {
+    --max-width: 258px;
+    --border-color: var(--primary-color);
+    padding-right: 39px;
+
+    span {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @include max-w-media(991px) {
+    --padding: 7px;
+    --max-width: 35px;
+    --height: 35px;
+    --font-size: 16px;
+
+    img {
+      width: 20px;
+    }
+  }
+}

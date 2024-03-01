@@ -77,7 +77,7 @@ const Page: React.FC = () => {
 
                 <div className="flex-container gap-30">
                   <UnderlinedTitle subtitle title="Слухати" />
-                  <IconsLinkedList iconsList={JSON.parse(el.social_media_links)} />
+                  <IconsLinkedList buttonText="Слухати зараз" iconsList={JSON.parse(el.social_media_links)} />
                 </div>
               </div>
             </ContentWrapper>
