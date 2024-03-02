@@ -21,7 +21,7 @@ interface musicReleaseObj {
   social_media_links: string;
 }
 
-const ITEMS_PER_PAGE = 1;
+const ITEMS_PER_PAGE = 2;
 
 const Page: React.FC = () => {
   const [releasesData, setRealeasesData] = React.useState<null | musicReleaseObj[]>(null);

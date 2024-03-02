@@ -248,6 +248,7 @@ a {
 ul.elements-pagination {
   padding: 10px 40px;
   user-select: none;
+  min-height: 64px;
   align-self: flex-end;
   display: flex;
   align-items: center;
@@ -277,6 +278,11 @@ ul.elements-pagination {
 
   .next, .previous {
     font-size: 22px;
+
+    &.disabled a {
+      color: var(--grey);
+      cursor: no-drop;
+    }
   }
 
   .next {
