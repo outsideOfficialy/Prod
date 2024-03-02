@@ -57,7 +57,18 @@
     --padding: 7px;
     --max-width: 35px;
     --height: 35px;
-    --font-size: 16px;
+
+    &:hover {
+      --max-width: 35px;
+      --padding: 7px;
+      --border-color: var(--primary-color);
+      padding-right: 0;
+
+      span {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
 
     img {
       width: 20px;
