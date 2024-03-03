@@ -172,6 +172,12 @@ ul {
   p {
     padding-top: 15px;
   }
+  @include max-w-media(991px) {
+    font-size: 16px;
+    p {
+      padding-top: 10px;
+    }
+  }
 }
 
 button {
@@ -259,7 +265,7 @@ ul.elements-pagination {
 
   li {
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   .pagination__item {
@@ -276,7 +282,8 @@ ul.elements-pagination {
     }
   }
 
-  .next, .previous {
+  .next,
+  .previous {
     font-size: 22px;
 
     &.disabled a {
@@ -289,11 +296,10 @@ ul.elements-pagination {
     margin-left: 30px;
     rotate: 180deg;
   }
-  
+
   .previous {
     margin-right: 30px;
   }
-
 }
 
 @include max-w-media(991px) {

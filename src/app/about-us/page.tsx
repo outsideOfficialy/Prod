@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import PageLayout from "@/components/PageLayout";
-import Image from "next/image";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import IconsLinkedList from "@/components/IconsLinkedList";
 
@@ -21,15 +20,15 @@ const Page: React.FC = () => {
   const [slides, setSlides] = useState([
     {
       id: 1,
-      content: <Image src="" alt="Slide 1" width={800} height={600} />
+      content: <img src="/about-us.png" alt="Slide 1" />
     },
     {
       id: 2,
-      content: <Image src="" alt="Slide 2" width={800} height={600} />
+      content: <img src="/about-us.png" alt="Slide 2" />
     },
     {
       id: 3,
-      content: <Image src="" alt="Slide 3" width={800} height={600} />
+      content: <img src="/about-us.png" alt="Slide 3" />
     }
   ]);
 
@@ -74,6 +73,7 @@ const Page: React.FC = () => {
 
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Учасники групи" />
+          {/* Here i need to create "get data from server" and show it in the several boxes */}
         </div>
       </div>
     </PageLayout>

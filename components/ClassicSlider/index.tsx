@@ -33,7 +33,7 @@ const Slider: React.FC<{ slides: ClassicSlider[] }> = ({ slides }) => {
         clickable: true
       }}
       modules={[Autoplay, Pagination]}
-      className="clasic-slider"
+      className="clasic-slider white-dots"
     >
       {/* Отображение слайдов из props */}
       {slides.map((slide) => (
