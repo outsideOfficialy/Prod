@@ -60,7 +60,7 @@ const Page: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="flex-container gap-60 group-members">
+      <div className="flex-container gap-60 about-us-container">
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Про нас" />
           <h3 className="sub-title">
@@ -83,7 +83,7 @@ const Page: React.FC = () => {
 
         <ClassicSlider slides={slides} />
 
-        <div className="flex-container gap-30">
+        <div className="flex-container gap-30 members-list">
           <UnderlinedTitle title="Учасники групи" />
           <BandMembersList bandMembers={bandMembers} />
         </div>

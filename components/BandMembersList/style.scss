@@ -3,12 +3,22 @@
 // @include max-w-media(991px)
 
 .member-box {
-  @include f-direction(row);
-  @include flex(flex-start, flex-start);
+  &:nth-child(even) {
+    @include f-direction(row);
+    @include flex(flex-start, flex-start);
+  }
+  &:nth-child(odd) {
+    @include f-direction(row-reverse);
+    @include flex(flex-start, flex-start);
+    .member-box__right-side {
+      @include flex(flex-start, flex-end);
+    }
+  }
   padding: 25px;
   gap: 35px;
   &__img {
     max-width: 276px;
+    min-width: 276px;
     width: 100%;
     height: 368px;
     object-fit: cover;
