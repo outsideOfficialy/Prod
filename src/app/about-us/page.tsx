@@ -81,7 +81,9 @@ const Page: React.FC = () => {
           <IconsLinkedList buttonText="Перейти" iconsList={iconsList} />
         </div>
 
-        <ClassicSlider slides={slides} />
+        <div className="flex-container gap-30">
+          <ClassicSlider slides={slides} />
+        </div>
 
         <div className="flex-container gap-30 members-list">
           <UnderlinedTitle title="Учасники групи" />

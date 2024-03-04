@@ -3,6 +3,9 @@
 // @include max-w-media(991px)
 
 .member-box {
+  padding: 25px;
+  gap: 35px;
+
   &:nth-child(even) {
     @include f-direction(row);
     @include flex(flex-start, flex-start);
@@ -20,8 +23,11 @@
       @include flex(flex-end, flex-end);
     }
   }
-  padding: 25px;
-  gap: 35px;
+
+  p {
+    font-size: 20px;
+  }
+
   &__img {
     max-width: 276px;
     min-width: 276px;
@@ -47,10 +53,6 @@
       @include f-direction(row);
       gap: 5px;
     }
-
-    p {
-      font-size: 20px;
-    }
   }
 
   &__left-side {
@@ -58,9 +60,48 @@
     @include flex(flex-start, flex-start);
     height: 100%;
     gap: 20px;
+  }
 
-    .btn-box {
-      padding: 0;
+  @include max-w-media(991px) {
+    padding: 15px;
+    gap: 15px;
+
+    &:nth-child(even) {
+      @include f-direction(column);
+      @include flex(flex-start, flex-start);
+    }
+
+    &:nth-child(odd) {
+      @include f-direction(column);
+      @include flex(flex-start, flex-start);
+      .member-box__right-side {
+        @include flex(flex-start, flex-end);
+      }
+
+      .btn-box {
+        @include flex(flex-end, flex-end);
+      }
+    }
+
+    &__img {
+      max-width: 100%;
+      min-width: 100%;
+      width: 100%;
+      height: 368px;
+      object-fit: cover;
+      border: 1px solid var(--white-half);
+    }
+
+    &__left-side {
+      gap: 10px;
+    }
+
+    &__right-side {
+      gap: 20px;
+    }
+
+    p {
+      font-size: 16px;
     }
   }
 }
