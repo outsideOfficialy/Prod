@@ -1,4 +1,20 @@
 /* пример адаптации + предложение того как организовать медиазапросы */
+@media screen and (max-width: 1200px) {
+  .header {
+    --nav-btns-font-size: 20px;
+
+    &__nav {
+      max-width: 365px;
+      min-width: 365px;
+    }
+
+    &__icons {
+      --max-width: 300px;
+      --nav-btn-container-side-padding: 32.55px;
+    }
+  }
+}
+
 @media (max-width: 991px) {
   .header {
     --nav-btns-font-size: 16px;

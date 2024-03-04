@@ -1,0 +1,49 @@
+@import "@/src/app/shortClasses.scss";
+
+main {
+  padding-bottom: 50px;
+}
+
+.music-release {
+  --music-padding: 25px 50px;
+  --music-img-m-width: 400px;
+  --songs-list-font-size: 20px;
+  --songs-list-padding-left: 1.2em;
+  
+  position: relative;
+  padding: var(--music-padding);
+  flex-wrap: wrap;
+  @include flex(space-between);
+  @include f-direction(row-reverse);
+  
+  .release-info {
+    @include flex(start);
+    @include f-direction(column);
+    gap: 40px;
+
+    &__songs-list {
+      padding-left: var(--songs-list-padding-left);
+      @include flex(start);
+      @include f-direction(column);
+      font-size: var(--songs-list-font-size);
+      gap: 20px;
+    }
+  }
+
+  .btn-box {
+    padding: 0;
+  }
+
+  .flex-container {
+    padding: 0;
+  }
+
+  &__img-container {
+    max-width: var(--music-img-m-width);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

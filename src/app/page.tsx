@@ -4,7 +4,7 @@ import PageLayout from "@/components/PageLayout";
 import React, { useEffect } from "react";
 
 // Slider
-import Slider from "@/components/Slider";
+import Slider from "@/components/SliderMainPage";
 
 export default function Home() {
   const [isMobile, setIsMobile] = React.useState(false);
