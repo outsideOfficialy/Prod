@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import IconsLinkedList from "@/components/IconsLinkedList";
+import BandMembersList from "@/components/BandMembersList";
+
+import { BandMember } from "@/components/BandMembersList";
 
 // CSS
 import "@/src/app/global.scss";
@@ -46,9 +49,18 @@ const Page: React.FC = () => {
     }
   ];
 
+  const [bandMembers, setBandMembers] = useState<BandMember[]>([]);
+
+  useEffect(() => {
+    fetch(`${SERVER_ROOT}/members/`)
+      .then((response) => response.json())
+      .then((data) => setBandMembers(data))
+      .catch((error) => console.error("Error fetching band members:", error));
+  }, []);
+
   return (
     <PageLayout>
-      <div className="flex-container gap-60">
+      <div className="flex-container gap-60 group-members">
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Про нас" />
           <h3 className="sub-title">
@@ -73,7 +85,7 @@ const Page: React.FC = () => {
 
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Учасники групи" />
-          {/* Here i need to create "get data from server" and show it in the several boxes */}
+          <BandMembersList bandMembers={bandMembers} />
         </div>
       </div>
     </PageLayout>

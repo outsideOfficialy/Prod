@@ -22,6 +22,8 @@ function getIconItem(platform: string) {
       return icons.soundCloud;
     case "youtube_music":
       return icons.youtubeMusic;
+    case "instagram":
+      return icons.instagram;
     default:
       return null;
   }
