@@ -13,6 +13,12 @@
     .member-box__right-side {
       @include flex(flex-start, flex-end);
     }
+    p {
+      text-align: right;
+    }
+    .btn-box {
+      @include flex(flex-end, flex-end);
+    }
   }
   padding: 25px;
   gap: 35px;
