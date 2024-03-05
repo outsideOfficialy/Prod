@@ -21,7 +21,7 @@ interface musicReleaseObj {
   social_media_links: string;
 }
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 3;
 
 const Page: React.FC = () => {
   const [releasesData, setRealeasesData] = React.useState<null | musicReleaseObj[]>(null);
@@ -67,17 +67,19 @@ const Page: React.FC = () => {
 
       {releasesData && <>
         {<MusicReleasesList musicReleasesObj={releasesData.slice(diapasonToShow!.startIndex, diapasonToShow!.endIndex + 1)} showId={showId} setShowId={setShowId} />}
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="arrow_back"
-          onPageChange={onPageChange}
-          pageRangeDisplayed={5}
-          pageCount={pagesAmnt.current!}
-          previousLabel="arrow_back"
-          className="elements-pagination material-symbols-outlined"
-          pageClassName="pagination__item"
-          renderOnZeroPageCount={null}
-        />
+        {pagesAmnt.current === 1 ? null : <>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="arrow_back"
+            onPageChange={onPageChange}
+            pageRangeDisplayed={5}
+            pageCount={pagesAmnt.current!}
+            previousLabel="arrow_back"
+            className="elements-pagination material-symbols-outlined"
+            pageClassName="pagination__item"
+            renderOnZeroPageCount={null}
+          />
+        </>}
       </>}
     </div>
   </PageLayout>
