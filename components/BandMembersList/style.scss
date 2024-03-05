@@ -75,6 +75,9 @@
     &:nth-child(odd) {
       @include f-direction(column);
       @include flex(flex-start, flex-start);
+      .member-box__left-side {
+        @include flex(flex-start, flex-end);
+      }
       .member-box__right-side {
         @include flex(flex-start, flex-end);
       }
@@ -85,10 +88,9 @@
     }
 
     &__img {
-      max-width: 100%;
-      min-width: 100%;
-
-      height: 368px;
+      max-width: 330px;
+      min-width: 330px;
+      height: 408px;
       object-fit: cover;
       border: 1px solid var(--white-half);
     }
