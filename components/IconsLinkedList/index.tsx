@@ -24,6 +24,18 @@ function getIconItem(platform: string) {
       return icons.youtubeMusic;
     case "instagram":
       return icons.instagram;
+    case "tiktok":
+      return icons.tikTok;
+    case "youtube":
+      return icons.youTube;
+    case "twitter":
+      return icons.twitter;
+    case "telegram":
+      return icons.telegram;
+    case "discord":
+      return icons.discord;
+    case "twitch":
+      return icons.twitch;
     default:
       return null;
   }
