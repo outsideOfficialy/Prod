@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
-import Image from "next/image";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import IconsLinkedList from "@/components/IconsLinkedList";
+import BandMembersList from "@/components/BandMembersList";
+
+import { BandMember } from "@/components/BandMembersList";
 
 // CSS
 import "@/src/app/global.scss";
@@ -21,15 +23,15 @@ const Page: React.FC = () => {
   const [slides, setSlides] = useState([
     {
       id: 1,
-      content: <Image src="" alt="Slide 1" width={800} height={600} />
+      content: <img src="/about-us.png" alt="Slide 1" />
     },
     {
       id: 2,
-      content: <Image src="" alt="Slide 2" width={800} height={600} />
+      content: <img src="/about-us.png" alt="Slide 2" />
     },
     {
       id: 3,
-      content: <Image src="" alt="Slide 3" width={800} height={600} />
+      content: <img src="/about-us.png" alt="Slide 3" />
     }
   ]);
 
@@ -47,9 +49,18 @@ const Page: React.FC = () => {
     }
   ];
 
+  const [bandMembers, setBandMembers] = useState<BandMember[]>([]);
+
+  useEffect(() => {
+    fetch(`${SERVER_ROOT}/members/`)
+      .then((response) => response.json())
+      .then((data) => setBandMembers(data))
+      .catch((error) => console.error("Error fetching band members:", error));
+  }, []);
+
   return (
     <PageLayout>
-      <div className="flex-container gap-60">
+      <div className="flex-container gap-60 about-us-container">
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Про нас" />
           <h3 className="sub-title">
@@ -70,10 +81,13 @@ const Page: React.FC = () => {
           <IconsLinkedList buttonText="Перейти" iconsList={iconsList} />
         </div>
 
-        <ClassicSlider slides={slides} />
-
         <div className="flex-container gap-30">
+          <ClassicSlider slides={slides} />
+        </div>
+
+        <div className="flex-container gap-30 members-list">
           <UnderlinedTitle title="Учасники групи" />
+          <BandMembersList bandMembers={bandMembers} />
         </div>
       </div>
     </PageLayout>

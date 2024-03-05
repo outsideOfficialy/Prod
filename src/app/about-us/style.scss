@@ -1,1 +1,32 @@
-    
+@import "@/src/app/shortClasses.scss";
+
+.about-us-container {
+  padding: 50px 0;
+}
+
+.btn-box {
+  @include max-w-media(991px) {
+    padding: 0;
+  }
+
+  .btn-icons {
+    min-width: 50px;
+    --height: 50px;
+    img {
+      width: 32px;
+    }
+  }
+}
+
+.member-box .btn-box {
+  padding: 0;
+  @include max-w-media(991px) {
+    .btn-icons {
+      min-width: 32px;
+      --height: 32px;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
