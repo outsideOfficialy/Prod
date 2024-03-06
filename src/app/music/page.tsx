@@ -45,7 +45,7 @@ const Page: React.FC = () => {
 
       {releasesData && <>
         <Pagination itemsPerPage={2} elementsList={releasesData.map((el, idx) => {
-          return <MusicReleaseElement el={el} />;
+          return <MusicReleaseElement key={el.id} el={el} />;
         })} />
       </>}
     </div>
