@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run pull && next dev",
+    "build": "npm run pull && next build",
+    "pull": "git pull",
     "start": "next start",
     "lint": "next lint"
   },
