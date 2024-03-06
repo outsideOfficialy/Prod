@@ -1,0 +1,11 @@
+@import "@/src/app/shortClasses.scss";
+
+main {
+  @include flex(center, center);
+}
+
+.content-wrapper {
+  @include width(100%, 810px);
+  // min-height: 
+  padding: 30px;
+}

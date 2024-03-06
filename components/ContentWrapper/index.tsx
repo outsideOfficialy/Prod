@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 interface ContentWrapperProps {
   className?: string;
   children: React.ReactNode | React.ReactNode[];
-  setShowId: (e: number | null) => void;
-  id: number;
+  setShowId?: (e: number | null) => void;
+  id?: number;
   animationDelay?: number;
 }
 
@@ -23,10 +23,12 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
     transition={{ duration: .3, delay: animationDelay }}
     viewport={{ once: true }}
     onMouseDown={(e) => {
+      if (!setShowId || !id) return;
       dragging.current = true;
       moveCoorX.current = e.clientX;
     }}
     onMouseMove={(e) => {
+      if (!setShowId || !id) return;
       if (dragging.current == true) {
         const currentX = e.clientX;
         const deltaX = moveCoorX.current - currentX;

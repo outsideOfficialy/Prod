@@ -2,10 +2,15 @@
 
 import React from "react";
 import PageLayout from "@/components/PageLayout";
+import ContentWrapper from "@/components/ContentWrapper";
+
+import "./style.scss";
 
 const Page: React.FC = () => {
   return <PageLayout>
-    Merch page
+    <ContentWrapper>
+      asd
+    </ContentWrapper>
   </PageLayout>
 }
 
