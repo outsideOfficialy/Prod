@@ -1,6 +1,8 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
+import "./style.scss";
+
 
 interface PaginationProps {
   elementsList: React.ReactNode[];
@@ -17,6 +19,10 @@ const Pagination: React.FC<PaginationProps> = ({
   const pagesAmnt = React.useRef(Math.ceil(elementsList.length / itemsPerPage));
 
   const onPageChange = (e: { selected: number }) => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     const startIndex = e.selected * itemsPerPage;
     const endIndex = startIndex + itemsPerPage - 1;
     setDiapasonToShow({
@@ -26,24 +32,26 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return <>
-    {
-      diapasonToShow && <>
-        {elementsList.slice(diapasonToShow.startIndex, diapasonToShow.endIndex + 1)}
-        {pagesAmnt.current === 1 ? null : <>
-          <ReactPaginate
-            breakLabel="..."
-            nextLabel="arrow_back"
-            onPageChange={onPageChange}
-            pageRangeDisplayed={5}
-            pageCount={pagesAmnt.current!}
-            previousLabel="arrow_back"
-            className="elements-pagination material-symbols-outlined"
-            pageClassName="pagination__item"
-            renderOnZeroPageCount={null}
-          />
-        </>}
-      </>
-    }
+    <div className="pagination-elements-container flex-container gap-60">
+      {
+        diapasonToShow && <>
+          {elementsList.slice(diapasonToShow.startIndex, diapasonToShow.endIndex + 1)}
+          {pagesAmnt.current === 1 ? null : <>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="arrow_back"
+              onPageChange={onPageChange}
+              pageRangeDisplayed={5}
+              pageCount={pagesAmnt.current!}
+              previousLabel="arrow_back"
+              className="elements-pagination material-symbols-outlined"
+              pageClassName="pagination__item"
+              renderOnZeroPageCount={null}
+            />
+          </>}
+        </>
+      }
+    </div>
   </>;
 }
 
