@@ -43,11 +43,11 @@ const Page: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="flex-container gap-60 about-us-container">
+      <div className="flex-container gap-60 news-container">
         <div className="flex-container gap-30">
           <UnderlinedTitle title="Новини" />
           <h3 className="sub-title">
-            <p>НОВІ ЗАПИСИ. ТУР. ДНІ НАРОДЖЕННЯ. ТА ПРОСТО МИ.</p>
+            <p>Записи з наших репетицій; Майбутні тури; Дні народження; Наше звичайне життя.</p>
           </h3>
         </div>
         <div className="flex-container gap-30 members-list">
