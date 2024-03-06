@@ -12,8 +12,15 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   const [showLoader, setShowLoader] = React.useState(true);
   const [showScrollUp, setShowScrollUp] = React.useState(false);
   // window.document.body.style.overflowY = "hidden";
+  const headerHeight = React.useRef(0);
 
   React.useEffect(() => {
+
+    const header = document.querySelector("header");
+    if (header && window.getComputedStyle(header).position !== "fixed") {
+      headerHeight.current = parseInt(window.getComputedStyle(header).height);
+    }
+
     if (scrollUpBtn) {
       window.addEventListener("scroll", () => {
         window.scrollY >= 100 ? setShowScrollUp(true) : setShowScrollUp(false);
@@ -29,7 +36,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
     
   });
 
-  return <main>
+  return <main style={{minHeight: `calc(100dvh - ${headerHeight.current}px)`}}>
     <div className={`page-loader ${showLoader ? "show" : ""}`}>
       Loading...
     </div>
