@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 interface ContentWrapperProps {
   className?: string;
   children: React.ReactNode | React.ReactNode[];
-  setShowId: (e: number | null) => void;
+  setShowId: (e: number| string | null) => void;
   id: number | string;
   animationDelay?: number;
 }
