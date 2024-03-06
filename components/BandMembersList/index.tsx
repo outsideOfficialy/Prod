@@ -24,6 +24,7 @@ const BandMembersList: React.FC<{ bandMembers: BandMember[] }> = ({ bandMembers 
     <>
       {bandMembers.map((member) => (
         <ContentWrapper key={member.id} className="member-box" id={member.id} setShowId={setShowId}>
+          {showId == member.id ? <p className="hidden-id">{member.id}</p> : null}
           <div className="member-box__left-side">
             <img
               src={`${SERVER_ROOT}/${JSON.parse(member.preview_picture)[0]}`}
