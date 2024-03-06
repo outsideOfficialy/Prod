@@ -9,6 +9,9 @@ import "./style.scss";
 const NewsCard: React.FC<{ news: any }> = ({ news }) => {
   return (
     <div className="news-card">
+      <div className="date-section">
+        <p>06.03.2023</p>
+      </div>
       <div className="top-section">
         <h3>{news.title}</h3>
       </div>
