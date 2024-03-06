@@ -77,7 +77,7 @@ const Page: React.FC = () => {
           </h3>
         </div>
         <div className="flex-container gap-30">
-          <UnderlinedTitle subtitle title="Наші соц. мережи" />
+          <UnderlinedTitle title="Наші соц. мережи" />
           <IconsLinkedList buttonText="Перейти" iconsList={iconsList} />
         </div>
 
