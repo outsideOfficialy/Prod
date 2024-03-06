@@ -7,7 +7,7 @@ interface ContentWrapperProps {
   className?: string;
   children: React.ReactNode | React.ReactNode[];
   setShowId: (e: number | null) => void;
-  id: number;
+  id: number | string;
   animationDelay?: number;
 }
 
