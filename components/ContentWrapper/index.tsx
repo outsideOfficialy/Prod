@@ -49,7 +49,6 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
     >
       {children}
     </motion.div>
-  );
 };
 
 export default ContentWrapper;
