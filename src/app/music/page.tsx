@@ -37,11 +37,12 @@ const Page: React.FC = () => {
         return d.json();
       })
       .then(d => {
+        // после того как данные были получены, спустя полсекунды (для демонстрации) 
+        // вставляем данные и отображаем элементы
         setTimeout(() => { 
           setRealeasesData(d)
           setTimeout(() => { setShowPagination(true) }, transition);
          }, 500);
-        // setRealeasesData(d);
       })
       .catch((reason) => console.log(reason));
   }, []);
