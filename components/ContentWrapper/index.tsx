@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 interface ContentWrapperProps {
   className?: string;
   children: React.ReactNode | React.ReactNode[];
-  setShowId: (e: number | string | null) => void;
-  id: number | string;
+  setShowId?: (e: number | null) => void;
+  id?: number;
   animationDelay?: number;
 }
 
@@ -21,20 +21,21 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
   const dragging = React.useRef(false);
   const moveCoorX = React.useRef(0);
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, translateY: -50 }}
-      whileInView={{ opacity: 1, translateY: 0 }}
-      transition={{ duration: 0.3, delay: animationDelay }}
-      viewport={{ once: true }}
-      onMouseDown={(e) => {
-        dragging.current = true;
-        moveCoorX.current = e.clientX;
-      }}
-      onMouseMove={(e) => {
-        if (dragging.current == true) {
-          const currentX = e.clientX;
-          const deltaX = moveCoorX.current - currentX;
+  return <motion.div
+    initial={{ opacity: 0, translateY: -50 }}
+    whileInView={{ opacity: 1, translateY: 0 }}
+    transition={{ duration: .3, delay: animationDelay }}
+    viewport={{ once: true }}
+    onMouseDown={(e) => {
+      if (!setShowId || !id) return;
+      dragging.current = true;
+      moveCoorX.current = e.clientX;
+    }}
+    onMouseMove={(e) => {
+      if (!setShowId || !id) return;
+      if (dragging.current == true) {
+        const currentX = e.clientX;
+        const deltaX = moveCoorX.current - currentX;
 
           if (deltaX >= -300) {
             setShowId(id);
