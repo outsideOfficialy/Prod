@@ -351,7 +351,7 @@ ul.elements-pagination {
     top: 50%;
     transform: translateY(-50%);
     // animation: move 1s linear infinite;
-    animation: moveToCorner 1s linear infinite;
+    animation: moveToCorner 1.5s linear infinite;
 
     &::before,
     &::after {
@@ -373,6 +373,7 @@ ul.elements-pagination {
     div {
       gap: 40px;
       flex-direction: row;
+      animation-duration: 1s;
       rotate: 45deg;
       height: 200%;
 
@@ -392,7 +393,7 @@ ul.elements-pagination {
 @keyframes moveToCorner {
   from {
     top: 0;
-    left: -100%;
+    left: -200%;
   }
 
   to {
