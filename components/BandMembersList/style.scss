@@ -5,6 +5,7 @@
 .member-box {
   padding: 25px;
   gap: 35px;
+  position: relative;
 
   &:nth-child(even) {
     @include f-direction(row);

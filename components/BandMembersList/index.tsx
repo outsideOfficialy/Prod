@@ -2,9 +2,10 @@ import React from "react";
 import { SERVER_ROOT } from "@/utils/variables";
 import IconsLinkedList from "@/components/IconsLinkedList";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
+import ContentWrapper from "@/components/ContentWrapper"; // Импортируем ContentWrapper
 
 import "./style.scss";
-// Определение интерфейса BandMember
+
 export interface BandMember {
   id: string;
   nickname: string;
@@ -16,19 +17,20 @@ export interface BandMember {
   send_later: string;
 }
 
-// Компонент для отображения карточек участников группы
 const BandMembersList: React.FC<{ bandMembers: BandMember[] }> = ({ bandMembers }) => {
+  const [showId, setShowId] = React.useState<string | number | null>(null);
+
   return (
     <>
       {bandMembers.map((member) => (
-        <div key={member.id} className="content-wrapper member-box">
+        <ContentWrapper key={member.id} className="member-box" id={member.id} setShowId={setShowId}>
+          {showId == member.id ? <p className="hidden-id">{member.id}</p> : null}
           <div className="member-box__left-side">
             <img
               src={`${SERVER_ROOT}/${JSON.parse(member.preview_picture)[0]}`}
               alt={member.nickname}
               className="member-box__img"
             />
-            {/* Проверяем, есть ли социальные медиа ссылки */}
             {member.social_media_links && (
               <IconsLinkedList
                 buttonText="Перейти"
@@ -50,7 +52,7 @@ const BandMembersList: React.FC<{ bandMembers: BandMember[] }> = ({ bandMembers 
               <p>{member.about}</p>
             </div>
           </div>
-        </div>
+        </ContentWrapper>
       ))}
     </>
   );

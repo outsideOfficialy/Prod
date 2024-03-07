@@ -12,7 +12,11 @@ interface ContentWrapperProps {
 }
 
 const ContentWrapper: React.FC<ContentWrapperProps> = ({
-  className, children, setShowId, id, animationDelay = 0.5
+  className,
+  children,
+  setShowId,
+  id,
+  animationDelay = 0.5
 }) => {
   const dragging = React.useRef(false);
   const moveCoorX = React.useRef(0);
@@ -33,16 +37,19 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
         const currentX = e.clientX;
         const deltaX = moveCoorX.current - currentX;
 
-        if (deltaX >= 300) {
-          setShowId(id);
-          dragging.current = false;
-          setTimeout(() => setShowId(null), 3000);
+          if (deltaX >= -300) {
+            setShowId(id);
+            dragging.current = false;
+            setTimeout(() => setShowId(null), 3000);
+          }
         }
-      }
-    }}
-    onMouseUp={(e) => dragging.current = false} className={`content-wrapper ${className ? className : ""}`}>
-    {children}
-  </motion.div>;
-}
+      }}
+      onMouseUp={(e) => (dragging.current = false)}
+      className={`content-wrapper ${className ? className : ""}`}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default ContentWrapper;
