@@ -6,11 +6,21 @@ import { SERVER_ROOT } from "@/utils/variables";
 
 import "./style.scss";
 
-const NewsCard: React.FC<{ news: any }> = ({ news }) => {
+interface NewsData {
+  id: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  preview_picture: string;
+  send_later: string;
+  date_posting: string;
+}
+
+const NewsCard: React.FC<{ news: NewsData }> = ({ news }) => {
   return (
     <div className="news-card">
       <div className="date-section">
-        <p>06.03.2023</p>
+        <p>{news.date_posting}</p>
       </div>
       <div className="top-section">
         <h3>{news.title}</h3>

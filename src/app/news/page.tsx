@@ -21,6 +21,7 @@ interface NewsData {
   content: string;
   preview_picture: string;
   send_later: string;
+  date_posting: string;
 }
 
 const Page: React.FC = () => {
