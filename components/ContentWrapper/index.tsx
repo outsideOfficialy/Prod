@@ -36,8 +36,8 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
       if (dragging.current == true) {
         const currentX = e.clientX;
         const deltaX = moveCoorX.current - currentX;
-
-          if (deltaX >= -300) {
+        console.log(deltaX);
+          if (deltaX >= 300) {
             setShowId(id);
             dragging.current = false;
             setTimeout(() => setShowId(null), 3000);
