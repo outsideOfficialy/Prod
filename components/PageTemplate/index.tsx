@@ -11,14 +11,15 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
 }) => {
   const [showLoader, setShowLoader] = React.useState(true);
   const [showScrollUp, setShowScrollUp] = React.useState(false);
-  // window.document.body.style.overflowY = "hidden";
-  const headerHeight = React.useRef(0);
+  const [headerHeight, setHeaderHeight] = React.useState(0);
 
   React.useEffect(() => {
 
     const header = document.querySelector("header");
-    if (header && window.getComputedStyle(header).position !== "fixed") {
-      headerHeight.current = parseInt(window.getComputedStyle(header).height);
+    console.log(window.getComputedStyle(header!).position);
+    
+    if (header && window.getComputedStyle(header).position === "sticky") {
+      setHeaderHeight(parseInt(window.getComputedStyle(header).height));
     }
 
     if (scrollUpBtn) {
@@ -36,7 +37,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
     
   });
 
-  return <main style={{minHeight: `calc(100dvh - ${headerHeight.current}px)`}}>
+  return <main style={{minHeight: `calc(100dvh - ${headerHeight}px)`}}>
     <div className={`page-loader ${showLoader ? "show" : ""}`}>
       Loading...
     </div>

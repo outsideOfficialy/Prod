@@ -12,6 +12,10 @@ main {
 
 .btn-primary {
   @include flex(space-between);
+
+  span {
+    align-self: center;
+  }
 }
 
 .content-wrapper {
@@ -25,5 +29,13 @@ main {
 
   p:last-child {
     font-size: 32px;
+  }
+
+  @include max-w-media(991px) {
+    font-size: 32px;
+
+    p:last-child {
+      font-size: 22px;
+    }
   }
 }
