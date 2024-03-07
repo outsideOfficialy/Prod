@@ -1,6 +1,23 @@
 import React from "react";
 
-const ContentWrapperSkeleton: React.FC<{ isShown: boolean, transition: number }> = ({
+interface ContentWrapperSkeletonProps {
+  isShown: boolean;
+  transition: number;
+  children: React.ReactNode | React.ReactNode[];
+}
+
+const ContentWrapperSkeleton: React.FC<ContentWrapperSkeletonProps> = ({
+  isShown, transition, children
+}) => {
+
+  return <>
+    {children}
+    <ContentWrapperSkeletonBlock isShown={isShown} transition={transition} />
+    <ContentWrapperSkeletonBlock isShown={isShown} transition={transition} />
+  </>;
+}
+
+const ContentWrapperSkeletonBlock: React.FC<{ isShown: boolean, transition: number }> = ({
   isShown, transition
 }) => {
   const [show, setShow] = React.useState(true);
@@ -15,7 +32,7 @@ const ContentWrapperSkeleton: React.FC<{ isShown: boolean, transition: number }>
 
   return <>
     {show &&
-      <div style={{transition: `${transition}ms`}} className={`content-wrapper-skeleton ${isShown ? "visible" : ""}`}>
+      <div style={{ transition: `${transition}ms` }} className={`content-wrapper-skeleton ${isShown ? "visible" : ""}`}>
         <div></div>
       </div>
     }

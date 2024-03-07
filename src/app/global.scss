@@ -347,10 +347,11 @@ ul.elements-pagination {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    rotate: 45deg;
+    rotate: -45deg;
     top: 50%;
     transform: translateY(-50%);
-    animation: move 1s linear infinite;
+    // animation: move 1s linear infinite;
+    animation: moveToCorner 1s linear infinite;
 
     &::before,
     &::after {
@@ -365,16 +366,37 @@ ul.elements-pagination {
       height: 40px;
     }
   }
+
+  @include max-w-media(991px) {
+    min-height: 800px;
+
+    div {
+      gap: 40px;
+      flex-direction: row;
+      rotate: 45deg;
+      height: 200%;
+
+      &::before,
+      &::after {
+        height: 100%;
+        width: 100px;
+      }
+
+      &::after {
+        width: 40px;
+      }
+    }
+  }
 }
 
-@keyframes move {
+@keyframes moveToCorner {
   from {
-    right: 100%;
-    // left: 0;
+    top: 0;
+    left: -100%;
   }
 
   to {
-    right: -100%;
-    // left: 100%;
+    top: 100%;
+    left: 100%;
   }
 }

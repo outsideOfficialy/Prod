@@ -51,13 +51,15 @@ const Page: React.FC = () => {
   return <PageLayout>
     <div className="flex-container gap-60">
       <UnderlinedTitle title="Музикальні релізи" />
-      {showPagination &&
-        <Pagination itemsPerPage={3} elementsList={releasesData!.map((el, idx) => {
-          return <MusicReleaseElement key={el.id} el={el} />;
-        })} />
-      }
-      <ContentWrapperSkeleton transition={transition} isShown={!releasesData} />
-      <ContentWrapperSkeleton transition={transition} isShown={!releasesData} />
+
+      <ContentWrapperSkeleton transition={transition} isShown={!releasesData} >
+        {showPagination &&
+          <Pagination itemsPerPage={3} elementsList={releasesData!.map((el, idx) => {
+            return <MusicReleaseElement key={el.id} el={el} />;
+          })} />
+        }
+      </ContentWrapperSkeleton>
+      
     </div>
   </PageLayout>
 }
