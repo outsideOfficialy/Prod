@@ -323,3 +323,49 @@ ul.elements-pagination {
   background-color: var(--black-half-dark);
   border: 1px solid var(--white-half);
 }
+
+.content-wrapper-skeleton {
+  width: 100%;
+  position: relative;
+  min-height: 500px;
+  background-color: #1e1e1e37;
+  border: 1px solid #ffffff8d;
+  overflow: hidden;
+
+  div {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    rotate: 45deg;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: move 1s linear infinite;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      display: block;
+      height: 100px;
+      background-color: #ffffff3c;
+    }
+
+    &::after {
+      height: 40px;
+    }
+  }
+}
+
+@keyframes move {
+  from {
+    right: 100%;
+    // left: 0;
+  }
+
+  to {
+    right: -100%;
+    // left: 100%;
+  }
+}
