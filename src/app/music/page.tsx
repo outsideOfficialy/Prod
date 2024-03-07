@@ -39,10 +39,10 @@ const Page: React.FC = () => {
       .then(d => {
         // после того как данные были получены, спустя полсекунды (для демонстрации) 
         // вставляем данные и отображаем элементы
-        // setTimeout(() => { 
-        //   setRealeasesData(d)
-        //   setTimeout(() => { setShowPagination(true) }, transition);
-        //  }, 500);
+        setTimeout(() => { 
+          setRealeasesData(d)
+          setTimeout(() => { setShowPagination(true) }, transition);
+         }, 500);
       })
       .catch((reason) => console.log(reason));
   }, []);
