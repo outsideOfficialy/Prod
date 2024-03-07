@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import NewsCard from "@/components/NewsCard";
+import Pagination from "@/components/Pagination";
 
 // CSS
 import "@/src/app/global.scss";
@@ -23,7 +24,7 @@ interface NewsData {
 }
 
 const Page: React.FC = () => {
-  const [newsData, setNewsData] = useState<NewsData[]>([]);
+  const [newsData, setNewsData] = useState<NewsData[] | null>(null);
 
   useEffect(() => {
     fetch(`${SERVER_ROOT}/news/`)
@@ -50,10 +51,10 @@ const Page: React.FC = () => {
             <p>Записи з наших репетицій; Майбутні тури; Дні народження; Наше звичайне життя.</p>
           </h3>
         </div>
-        <div className="flex-container gap-30 members-list">
-          {newsData.map((newsItem) => (
+        <div className="flex-container gap-30">
+          {newsData && <Pagination elementsList={newsData.map((newsItem) => (
             <NewsCard key={newsItem.id} news={newsItem} />
-          ))}
+          ))} itemsPerPage={2} />}
         </div>
       </div>
     </PageLayout>
