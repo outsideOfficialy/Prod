@@ -331,6 +331,15 @@ ul.elements-pagination {
   background-color: #1e1e1e37;
   border: 1px solid #ffffff8d;
   overflow: hidden;
+  transform: translateY(-50px);
+  visibility: hidden;
+  opacity: 0;
+
+  &.visible {
+    transform: translateY(0px);
+    visibility: visible;
+    opacity: 1;
+  }
 
   div {
     width: 100%;

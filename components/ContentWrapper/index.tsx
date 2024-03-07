@@ -16,7 +16,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
   children,
   setShowId,
   id,
-  animationDelay = 0.5
+  animationDelay = 0
 }) => {
   const dragging = React.useRef(false);
   const moveCoorX = React.useRef(0);

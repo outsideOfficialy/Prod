@@ -24,6 +24,9 @@ interface musicReleaseObj {
 
 const Page: React.FC = () => {
   const [releasesData, setRealeasesData] = React.useState<null | musicReleaseObj[]>(null);
+  const [showPagination, setShowPagination] = React.useState(false);
+
+  const transition = 300;
 
   React.useEffect(() => {
     fetch(`${SERVER_ROOT}/music/`)
@@ -34,7 +37,11 @@ const Page: React.FC = () => {
         return d.json();
       })
       .then(d => {
-        setRealeasesData(d);
+        setTimeout(() => { 
+          setRealeasesData(d)
+          setTimeout(() => { setShowPagination(true) }, transition);
+         }, 500);
+        // setRealeasesData(d);
       })
       .catch((reason) => console.log(reason));
   }, []);
@@ -43,17 +50,13 @@ const Page: React.FC = () => {
   return <PageLayout>
     <div className="flex-container gap-60">
       <UnderlinedTitle title="Музикальні релізи" />
-      {/* <Loader /> */}
-      {releasesData ? <>
-        <Pagination itemsPerPage={2} elementsList={releasesData.map((el, idx) => {
+      {showPagination &&
+        <Pagination itemsPerPage={3} elementsList={releasesData!.map((el, idx) => {
           return <MusicReleaseElement key={el.id} el={el} />;
         })} />
-      </>
-        : <>
-          <ContentWrapperSkeleton />
-          <ContentWrapperSkeleton />
-        </>
       }
+      <ContentWrapperSkeleton transition={transition} isShown={!releasesData} />
+      <ContentWrapperSkeleton transition={transition} isShown={!releasesData} />
     </div>
   </PageLayout>
 }
