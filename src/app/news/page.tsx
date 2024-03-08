@@ -6,6 +6,7 @@ import PageLayout from "@/components/PageLayout";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import NewsCard from "@/components/NewsCard";
 import Pagination from "@/components/Pagination";
+import ContentWrapperSkeleton from "@/components/ContenWrapperSkeleton";
 
 // CSS
 import "@/src/app/global.scss";
@@ -26,6 +27,9 @@ interface NewsData {
 
 const Page: React.FC = () => {
   const [newsData, setNewsData] = useState<NewsData[] | null>(null);
+  const [showPagination, setShowPagination] = React.useState(false);
+
+  const transition = 300;
 
   useEffect(() => {
     fetch(`${SERVER_ROOT}/news/`)
@@ -37,6 +41,7 @@ const Page: React.FC = () => {
       })
       .then((data) => {
         setNewsData(data);
+        setTimeout(() => { setShowPagination(true) }, transition);
       })
       .catch((error) => {
         console.error("Error fetching news data:", error);
@@ -53,9 +58,11 @@ const Page: React.FC = () => {
           </h3>
         </div>
         <div className="flex-container gap-30">
-          {newsData && <Pagination elementsList={newsData.map((newsItem) => (
-            <NewsCard key={newsItem.id} news={newsItem} />
-          ))} itemsPerPage={2} />}
+          <ContentWrapperSkeleton transition={transition} isShown={!newsData}>
+            {showPagination && <Pagination elementsList={newsData!.map((newsItem) => (
+              <NewsCard key={newsItem.id} news={newsItem} />
+            ))} itemsPerPage={2} />}
+          </ContentWrapperSkeleton>
         </div>
       </div>
     </PageLayout>

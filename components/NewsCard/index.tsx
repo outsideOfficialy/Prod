@@ -1,6 +1,7 @@
 // NewsCard.tsx
 
 import React from "react";
+import { motion } from "framer-motion";
 
 import { SERVER_ROOT } from "@/utils/variables";
 
@@ -18,7 +19,12 @@ interface NewsData {
 
 const NewsCard: React.FC<{ news: NewsData }> = ({ news }) => {
   return (
-    <div className="news-card">
+    <motion.div
+      initial={{ opacity: 0, translateY: -50 }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      transition={{ duration: .3 }}
+      viewport={{ once: true }}
+      className="news-card">
       <div className="date-section">
         <p>{news.date_posting}</p>
       </div>
@@ -29,7 +35,7 @@ const NewsCard: React.FC<{ news: NewsData }> = ({ news }) => {
         <p>{news.content}</p>
         <img src={SERVER_ROOT + "/" + JSON.parse(news.preview_picture)[0]} alt="News Preview" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

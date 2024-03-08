@@ -5,6 +5,7 @@ import PageLayout from "@/components/PageLayout";
 import UnderlinedTitle from "@/components/UnderlinedTitle";
 import IconsLinkedList from "@/components/IconsLinkedList";
 import BandMembersList from "@/components/BandMembersList";
+import ContentWrapperSkeleton from "@/components/ContenWrapperSkeleton";
 
 import { BandMember } from "@/components/BandMembersList";
 
@@ -49,12 +50,18 @@ const Page: React.FC = () => {
     }
   ];
 
-  const [bandMembers, setBandMembers] = useState<BandMember[]>([]);
+  const [bandMembers, setBandMembers] = useState<BandMember[] | null>(null);
+  const [showData, setShowData] = React.useState(false);
+
+  const transition = 300;
 
   useEffect(() => {
     fetch(`${SERVER_ROOT}/members/`)
       .then((response) => response.json())
-      .then((data) => setBandMembers(data))
+      .then((data) => {
+        setBandMembers(data);
+        setTimeout(() => { setShowData(true) }, transition);
+      })
       .catch((error) => console.error("Error fetching band members:", error));
   }, []);
 
@@ -87,7 +94,9 @@ const Page: React.FC = () => {
 
         <div className="flex-container gap-30 members-list">
           <UnderlinedTitle title="Учасники групи" />
-          <BandMembersList bandMembers={bandMembers} />
+          <ContentWrapperSkeleton transition={transition} isShown={!bandMembers}>
+            {showData && <BandMembersList bandMembers={bandMembers!} />}
+          </ContentWrapperSkeleton>
         </div>
       </div>
     </PageLayout>
